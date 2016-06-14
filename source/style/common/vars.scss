@@ -1,0 +1,68 @@
+/*-------------------------------------*/// VARIABLES: GLOBAL/*-------------------------------------*/
+
+/*-------------------------------------*/// GRID
+
+// Grid: Gutters$grid-gutter: 15px;
+
+/*-------------------------------------*/// MEDIA QUERIES
+
+$media-lg: 1200px;$media-mid: 900px;$media-sm: 600px;
+
+/*-------------------------------------*/// DIMENSIONS: WIDTHS, HEIGHTS
+
+// Header: Height$height-header: 45px;
+
+// Nav Menu: Width$width-nav: 280px;
+
+// Inputs: Height$height-form-widget: 60px;
+
+/*-------------------------------------*/// COLORS
+
+$section-title: #455a64;
+
+$section-title-line: #cbcbc8;
+
+$skills-subtitle-text: #4d5963;
+
+$section-about: #f0eee9;
+
+$section-skills: #eeebdf;
+
+$main-text: #455a64;
+
+// Colors: Brand$color-brand-1: #7dcfb8;
+
+// Colors: Common: Greys$grey-mist: #f5f5f5;$grey-platinum: #bbb;$grey-cement: #8f8f8f;$grey-gravel: #444;
+
+// Colors: Common: Cool$blue-ink: #000f55;$green-pista: #93c572;
+
+// Colors: Common: Warm$red-hibiscus: #f0214f;$orange-marigold: #ff753b;
+
+// Colors: Brands for Social Media$blue-facebook: #3b5998;$blue-twitter: #55acee;$blue-vimeo: #1ab7ea;$red-youtube: #cd201f;
+
+// Colors: Links$color-link: $color-brand-1;$color-link-hover: darken($color-link, 12%);
+
+// Colors: Base Font$color-font-base: $grey-gravel;
+
+/*-------------------------------------*/// FONTS
+
+// Fonts: Base styles$font-family-1: Roboto, sans-serif;$font-size-base: 18px;
+
+// Fonts: Weights$font-light: 300;$font-normal: 400;$font-bold: 700;
+
+// Fonts: Sizes$font-sm: 90%;$font-sm-x: 80%;$font-lg: 110%;$font-lg-x: 120%;
+
+/*-------------------------------------*/// FONT-ICONS: FAMILY
+
+$font-icon: 'icomoon';
+
+/*-------------------------------------*/// SPACING
+
+$spacing: 10px;
+$spacing-double: $spacing * 2;
+$spacing-third: $spacing * 3;
+$spacing-half: $spacing / 2;
+
+/*-------------------------------------*/// Z:INDEX
+
+$zindex-header: 1000;$zindex-dropdown: 1100;$zindex-lib-select2: 1200;  // plugin: Select2$zindex-notify: 1300;$zindex-modal: 1400;

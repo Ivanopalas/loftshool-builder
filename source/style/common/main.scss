@@ -1,0 +1,119 @@
+.about {
+  background: $section-about;
+  padding: 25px 10px;
+
+  &__text {
+    font-family: RobotoRegular;
+    line-height: 1.7;
+    color: $main-text;
+  }
+
+  &__title {
+    background: $section-about;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 125px;
+      height: 5px;
+      left: 50%;
+      margin-left: -62px;
+      top: 50%;
+      margin-top:-2px;
+      background: $section-title-line;
+      z-index: -2;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 81px;
+      height: 16px;
+      background: $section-about;
+      top:8px;
+      left: 50%;
+      margin-left: -40px;
+      z-index:-1;
+    }
+  }
+}
+
+.skills {
+  padding: 30px 10px;
+  background: $section-skills;
+
+  &__title {
+
+  }
+
+  &__text {
+    font-family: 'RobotoRegular';
+    color: $main-text;
+    line-height: 1.7;
+  }
+}
+
+.contacts {
+  padding: 32px 10px;
+
+  &__title {
+    font-size: 2.5rem;
+    color: #373e42;
+  }
+
+  &__list {
+    list-style-type: none;
+    font-family: 'RobotoMedium';
+    font-size: 1.14rem;
+  }
+
+  &__item {
+    position: relative;
+    display: block;
+    margin-bottom: 27px;
+    padding-left: 35px;
+    text-decoration: none;
+    color: $section-title;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  &__item--skype:before {
+    background: url("/assets/img/skype.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &__item--mail:before {
+    top: 3px;
+    background: url("/assets/img/envelope.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &__item--phone:before {
+    background: url("/assets/img/phone.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &__item--adress:before {
+    background: url("/assets/img/map_marker.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+}
+
+.footer {
+  padding: 15px 0 30px;
+}

@@ -1,0 +1,145 @@
+.header {
+  position: relative;
+  padding: 10px;
+  min-height: 650px;
+  background: url(/assets/img/main-img.jpg) no-repeat;
+  -webkit-background-size: auto 100%;
+  background-size: auto 100%;
+  background-position: center;
+
+  &__top {
+    @include clearfix
+    margin-bottom: 84px;
+  }
+
+  &__about {
+    font-family: 'RobotoLight';
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 152px;
+  }
+
+  &__arrow {
+    display: block;
+    margin: auto;
+    width: 26px;
+    height: 16px;
+    background: url("/assets/img/arrow_down.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 51%;
+    height: 113px;
+    background: url("/assets/img/about_bg_left.svg") no-repeat;
+  }
+
+  &:after {
+    right: 0px;
+    left: auto;
+    background: url("/assets/img/about_bg_right.svg") no-repeat;
+    -webkit-background-size: 103%;
+    background-size: 103%;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    margin-left: -63px;
+    margin-top: 81px;
+    font-family: 'BerniertRegular';
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #373e42;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  &__back {
+    position: absolute;
+    z-index: 100;
+    width: 50%;
+    left: 50%;
+    margin-left: -106px;
+    bottom: 2%;
+    opacity: .3;
+  }
+}
+
+.social {
+  margin-bottom: 84px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0;
+
+  &__list {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  &__item--vk {
+    background: url("/assets/img/vk.svg") no-repeat;
+  }
+
+  &__item--github {
+    background: url("/assets/img/github.svg") no-repeat;
+  }
+
+  &__item--linkedin {
+    background: url("/assets/img/in.svg") no-repeat;
+  }
+
+  &__item {
+    margin-right: 28px;
+    display: block;
+    width: 26px;
+    height: 19px;
+    text-indent: -9999px;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    opacity: .5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.burger {
+  float: right;
+  font-size: 0;
+  display: block;
+  width: 25px;
+  height: 22px;
+  background: url("/assets/img/hamburger.svg") no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+
+.photo {
+  margin: auto;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &__img {
+    width: 140px;
+  }
+}
+
+.main-photo {
+  width: 100%;
+  height: auto;
+}

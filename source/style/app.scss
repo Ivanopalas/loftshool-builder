@@ -1,9 +1,37 @@
 body {
   margin: 0;
+  font-size: 14px;
 }
 
+h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: 'RobotoMedium';
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+@import 'common/mixins';
+@import 'common/header';
 @import 'common/border';
 @import 'common/fonts';
 @import 'common/vars';
 @import 'common/GUI';
 @import 'common/greating';
+@import 'common/main';
+
+h3 {
+  font-family: 'BerniertRegular';
+  font-size: 1.5rem;
+  color: $section-title;
+  text-align: center;
+  margin: 0;
+}
+
+h5 {
+  font-family: 'RobotoMedium';
+  font-size: 1.5rem;
+  text-align: center;
+  color: $skills-subtitle-text;
+}
