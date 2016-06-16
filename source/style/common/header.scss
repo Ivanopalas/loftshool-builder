@@ -1,11 +1,17 @@
 .header {
   position: relative;
   padding: 10px;
-  min-height: 650px;
+  min-height: 550px;
   background: url(/assets/img/main-img.jpg) no-repeat;
   -webkit-background-size: auto 100%;
   background-size: auto 100%;
   background-position: center;
+
+  @include desktop {
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    background-position: top;
+  }
 
   &__top {
     @include clearfix
@@ -30,46 +36,11 @@
     background-size: contain;
   }
 
-  &:before,
-  &:after {
-    content: '';
+  &__bottom {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
-    width: 51%;
-    height: 113px;
-    background: url("/assets/img/about_bg_left.svg") no-repeat;
-  }
-
-  &:after {
-    right: 0px;
-    left: auto;
-    background: url("/assets/img/about_bg_right.svg") no-repeat;
-    -webkit-background-size: 103%;
-    background-size: 103%;
-  }
-
-  &__title {
-    position: absolute;
-    left: 50%;
-    margin-left: -63px;
-    margin-top: 81px;
-    font-family: 'BerniertRegular';
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    color: #373e42;
-    text-align: center;
-    z-index: 9999;
-  }
-  
-  &__back {
-    position: absolute;
-    z-index: 100;
-    width: 50%;
-    left: 50%;
-    margin-left: -106px;
-    bottom: 2%;
-    opacity: .3;
+    right: 0;
   }
 }
 
@@ -142,4 +113,9 @@
 .main-photo {
   width: 100%;
   height: auto;
+}
+
+.traingle {
+  margin: auto;
+  fill: #efeee9;
 }

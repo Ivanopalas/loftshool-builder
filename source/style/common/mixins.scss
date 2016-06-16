@@ -1,3 +1,5 @@
+@import 'vars';
+
 @mixin clearfix {
   &:before,
   &:after {
@@ -7,5 +9,23 @@
   
   &:after {
     clear: both;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) and (max-width: #{$xl-desctop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin xl-desktop {
+  @media (min-width: #{$xl-desctop-width}) {
+    @content;
   }
 }

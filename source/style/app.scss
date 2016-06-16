@@ -35,3 +35,10 @@ h5 {
   text-align: center;
   color: $skills-subtitle-text;
 }
+
+@include tablet {
+  .wrapper {
+    width: 472px;
+    margin: 0 auto;
+  }
+}

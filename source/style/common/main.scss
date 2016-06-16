@@ -1,6 +1,9 @@
+@import "mixins";
+
 .about {
+  position: relative;
   background: $section-about;
-  padding: 25px 10px;
+  padding: 25px 0;
 
   &__text {
     font-family: RobotoRegular;
@@ -9,6 +12,15 @@
   }
 
   &__title {
+    margin: 0 auto 15px;
+    font-family: 'BerniertRegular';
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #373e42;
+    text-align: center;
+  }
+
+  &__subtitle {
     background: $section-about;
     position: relative;
 
@@ -39,6 +51,20 @@
       z-index:-1;
     }
   }
+
+  &__text {
+    padding: 0 10px;
+  }
+
+  &__back {
+    position: absolute;
+    top: 19px;
+    width: 156px;
+    left: 50%;
+    margin-left: -78px;
+    bottom: 2%;
+    opacity: .3;
+  }
 }
 
 .skills {
@@ -58,6 +84,38 @@
 
 .contacts {
   padding: 32px 10px;
+  
+  @include tablet {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: rgba(#fff, .85);
+    padding: 36px 45px 33px 36px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  @include desktop {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: rgba(#fff, .85);
+    padding: 36px 45px 33px 36px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
 
   &__title {
     font-size: 2.5rem;
@@ -65,6 +123,7 @@
   }
 
   &__list {
+    padding: 0;
     list-style-type: none;
     font-family: 'RobotoMedium';
     font-size: 1.14rem;
@@ -86,6 +145,8 @@
       width: 24px;
       height: 24px;
     }
+
+
   }
   
   &__item--skype:before {
@@ -115,5 +176,184 @@
 }
 
 .footer {
-  padding: 15px 0 30px;
+  background: rgba(0,0,0,.5);
+  padding: 15px 0 15px;
+
+  &__top {
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    @include clearfix
+  }
+
+  &__bottom {
+    @include clearfix
+  }
+
+  &__menu {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include desktop {
+      float: left;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__link {
+    font-family: 'RobotoMedium';
+    font-size: .9;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &__text,
+  &__copyright {
+    padding: 0 15px;
+    font-family: 'RobotoLight';
+    line-height: 1.7;
+    color: #fff;
+    text-align: center;
+  }
+
+  &__copyright {
+    padding: 0 25px;
+
+    @include desktop {
+      float: right;
+      margin-right: 5px;
+    }
+  }
+}
+
+@include desktop {
+  .footer__text {
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-left: 15px;
+  }
+}
+
+.social-rounted {
+  list-style-type: none;
+  padding: 0;
+  padding-bottom: 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 0;
+
+  @include desktop {
+    float: right;
+    margin-right: 30px;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__link {
+    display: block;
+    height: 36px;
+    width: 36px;
+  }
+
+  &__link--vk {
+    background: url("/assets/img/vk_round.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &__link--github {
+    background: url("/assets/img/github_round.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &__link--link {
+    background: url("/assets/img/in_round.svg") no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+}
+
+
+.map {
+
+  &__wrap {
+    position: relative
+  }
+
+  &__footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  fill: none;
+  stroke-width: 25;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  
+  &__wrap {
+    position: relative;
+  }
+  
+  &__text {
+    font-family: 'RobotoRegular';
+    font-size: .9rem;
+    color: $circle-color;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 70px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+  
+
+  &__sector {
+    stroke-dasharray: 70 314;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+  }
 }
