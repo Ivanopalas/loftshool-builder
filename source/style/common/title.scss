@@ -1,0 +1,42 @@
+.main-title {
+  position: relative;
+  text-align: center;
+  font-family: 'BerniertRegular';
+  font-size: 2.5rem;
+  background: #faf8f0;
+
+  &__wrap {
+    width: 80%;
+  }
+
+  &__title {
+    font-family: 'BerniertRegular';
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 30px;
+    padding-bottom: 42px;
+    background: #faf8f0;
+  }
+
+  &__title:before,
+  &__title:after {
+    content: ' -';
+    font-family: 'BerniertRegular';
+    color: #d3d3cd;
+  }
+
+  &__title:before {
+    content: '– ';
+  }
+
+  &__centered {
+    margin-top: -7.5rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  &__photo {
+    width: 16rem;
+    opacity: .3;
+  }
+}

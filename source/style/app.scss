@@ -13,6 +13,9 @@ h1 {
 }
 
 @import 'common/mixins';
+@import 'common/works';
+@import 'common/slider';
+@import 'common/title';
 @import 'common/header';
 @import 'common/border';
 @import 'common/fonts';
@@ -40,5 +43,40 @@ h5 {
   .wrapper {
     width: 472px;
     margin: 0 auto;
+  }
+}
+
+.container {
+  @include clearfix
+}
+
+@include laptop {
+
+  .half-column {
+    float: left;
+    width: 50%;
+  }
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 20px 12px 52px;
+  font-family: 'RobotoMedium';
+  color: #fff;
+  background: $circle-color;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-decoration: none;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(/assets/img/link.svg);
+    background-size: contain;
   }
 }

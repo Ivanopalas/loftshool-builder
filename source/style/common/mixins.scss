@@ -13,19 +13,33 @@
 }
 
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  @media screen and (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: #{$laptop-width}) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: #{$desktop-width}) and (max-width: #{$xl-desctop-width - 1px}) {
+  @media screen and (min-width: #{$desktop-width}) {
     @content;
   }
 }
 
 @mixin xl-desktop {
-  @media (min-width: #{$xl-desctop-width}) {
+  @media screen and (min-width: #{$xl-desctop-width}) {
     @content;
   }
+}
+
+@mixin centered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

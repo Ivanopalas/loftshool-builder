@@ -4,8 +4,8 @@
   min-height: 550px;
   background: url(/assets/img/main-img.jpg) no-repeat;
   -webkit-background-size: auto 100%;
-  background-size: auto 100%;
-  background-position: center;
+  background-size: cover;
+  background-position: top;
 
   @include desktop {
     -webkit-background-size: 100% auto;

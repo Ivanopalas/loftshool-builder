@@ -1,0 +1,74 @@
+include common/_mixins
+
+doctype html
+html
+  include common/_head
+  body
+    <!--[if lt IE 7]>
+    <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+    <![endif]-->
+
+    .works-header
+      include common/_header
+
+    +section-title('мои работы', 'about_header.svg')
+
+    .slider
+        .slider__left
+            .slider__display
+                img(src="/assets/img/slider_1.png")
+            .slider__infp
+                .slider__title Сайт школы онлайн образования
+                .slider__info html, css, javascript
+                .slider__btn
+                    a(href="#").btn Посмотреть сайт
+        .slider__right
+            .slider__controls
+                a(href="#").slider__controls-item.slider__controls-item--prev
+                    img(src="/assets/img/slider_2.jpg").slider__controls-img
+            .slider__controls
+                a(href="#").slider__controls-item.slider__controls-item--next
+                    img(src="/assets/img/slider_3.jpg").slider__controls-img
+
+    section.works-bottom
+
+        .reviews
+            +section-title('что обо мне говорят', 'about-bg.svg')
+
+            .reviews-slider
+                .reviews-slider__item
+                    p.quotes "
+                    p.reviews-slider__text
+                        | Этот парень проходил обучение веб-разработке не где-то,
+                        | а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .reviews-slider__img
+                        img(src="/assets/img/person_1.jpg")
+                    .reviews-slider__bottom
+                        .reviews-slider__person Дмитрий Ковальчук
+                        .reviews-slider__post основатель Loftschool
+                .reviews-slider__item
+                    p.quotes "
+                    p.reviews-slider__text
+                        | Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт
+                        | на слишком старых браузерах!
+                    .reviews-slider__img
+                        img(src="/assets/img/person_2.jpg")
+                    .reviews-slider__bottom
+                        .reviews-slider__person Зар Захаров
+                        .reviews-slider__post главный преподаватель
+
+        .contact
+            .contact__wrap
+                h4.contact__title связаться со мной
+                form(action="mailto:ivan.aksyutin@gmail.com" method="post" name="mailtome").contact__form
+                    .contact__inner-wrap
+                        input(type="text" placeholder="Имя").contact__input
+                        input(type="email" placeholder="Email").contact__input
+                        textarea(placeholder="Ваше сообщение" rows="4").contact__input
+                input(type="submit" value="Отправить").contact__submit.contact__submit--send
+                input(type="submit" value="Очистить").contact__submit.contact__submit--clear
+
+            img(src="/assets/img/arrow_up.svg").contact__arrow
+
+    .work-footer
+        include common/_footer

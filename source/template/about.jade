@@ -1,3 +1,5 @@
+include common/_mixins
+
 doctype html
 html
     include common/_head
@@ -6,53 +8,99 @@ html
         <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
         <![endif]-->
 
-    header.header
-        .header__top
-            ul.social
-                li.social__list: a(href='#').social__item.social__item--vk
-                li.social__list: a(href='#').social__item.social__item--github
-                li.social__list: a(href='#').social__item.social__item--linkedin
+    include common/_header
 
-            a(href='#').burger Меню
-        .photo
-             img(src='/assets/img/myPhoto.jpg' alt='my-photo').photo__img
-        h1 Аксютин Иван
-        p.header__about Личный сайт веб разработчика
-        a(href='#').header__arrow
-        .header__bottom
-            svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none").traingle
-                polygon(points="0,0   0,86   500.8,86   500.8,75.5")
-                polygon(points="1000,0   1000,86   500,86   500,75.5")
+    .container
+        .half-column
+            section.about
+                .wrapper
+                    img(src='/assets/img/about_header.svg').about__back
+                    h4.about__title обо мне
+                    p.centered
+                        img(src='/assets/img/myPhoto.jpg' alt='my-photo').main-photo
 
-    section.about
-        .wrapper
-            img(src='/assets/img/about_header.svg').about__back
-            h4.about__title обо мне
-            p.centered
-                img(src='/assets/img/myPhoto.jpg' alt='my-photo').main-photo
+                    h3.about__subtitle кто я
+                    p.about__text
+                        | Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов
+                        | и приложений. Мне нравится делать интересные и современные проекты.
+                    p.about__text
+                        | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+                        | Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
-            h3.about__subtitle кто я
-            p.about__text
-                | Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов
-                | и приложений. Мне нравится делать интересные и современные проекты.
-            p.about__text
-                | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
-                | Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        .half-column
 
-    section.skills
-        .wrapper
-            h3.skills__title чем могу быть вам полезен
-            p.skills__text
-                | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать
-                | не сложные задачи на Backend. Но давайте по порядку.
-        h5.skills__subtitle Frontend
-            .circle__wrap
-                svg(width="100%" height="100%").circle
-                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                span.circle__text html 5
-        h5.skills__subtitle Backend
-        h5.skills__subtitle WorkFlow
+            section.skills
+                .wrapper
+                    h3.skills__title чем могу быть вам полезен
+                    p.skills__text
+                        | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать
+                        | не сложные задачи на Backend. Но давайте по порядку.
+                h5.skills__subtitle Frontend
+                    ul.progress
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text html 5
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text css3
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text javaskript & jQuery
+                h5.skills__subtitle Backend
+                    ul.progress
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text PHP
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text mySQL
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text Node.js & npm
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text Monho.db
+                h5.skills__subtitle WorkFlow
+                    ul.progress
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text Git
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text Gulp
+                        li.progress__item
+                            .circle__wrap
+                                svg(width="100%" height="100%").circle
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                                span.circle__text Bover
 
 
     .map__wrap
@@ -68,22 +116,4 @@ html
         iframe( src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5337.3615916219605!2d37.80350524864198!3d48.01987653514938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xa4ee2c35505a72fe!2z0JTQvtC90LHQsNGB0YEg0JDRgNC10L3QsA!5e0!3m2!1sru!2sua!4v1465827825041" width="100%" height="700px" frameborder="0" style="border:0" allowfullscreen)
 
         .map__footer
-            footer.footer
-                .footer__top
-                    ul.footer__menu
-                        li.footer__item: a(href="#").footer__link Мои работы
-                        li.footer__item: a(href="#").footer__link Обо мне
-                        li.footer__item: a(href="#").footer__link Блог
-                        li.footer__item: a(href="#").footer__link Авторизация
-
-                    ul.social-rounted
-                        li.social-rounted__item: a(href="#").social-rounted__link.social-rounted__link--vk
-                        li.social-rounted__item: a(href="#").social-rounted__link.social-rounted__link--github
-                        li.social-rounted__item: a(href="#").social-rounted__link.social-rounted__link--link
-
-                .footer__bottom
-                    p.footer__text
-                        | Я веб-разработчик из Донецка, и этот сайт я сделал в рамках обучения
-                        | в Школе онлайн образования LoftSchool.
-                    p.footer__copyright
-                        | &copy; Аксютин Иван | создано с любовью в LoftSchool | 2016
+            include common/_footer

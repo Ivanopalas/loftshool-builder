@@ -1,0 +1,158 @@
+.reviews {
+  padding: 10px;
+
+  .main-title {
+    background: #fff;
+    
+    &__title {
+      background: #fff;
+    }
+  }
+}
+
+.reviews-slider {
+  @include clearfix
+  margin-bottom: 30px;
+
+
+  &__item {
+    @include tablet {
+      width: 50%;
+      float: left;
+
+    }
+  }
+
+  &__item:first-child {
+    @include tablet {
+      width: calc(50% - 35px);
+      margin-right: 30px;
+    }
+  }
+
+  &__img {
+    margin-right: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 51px;
+    height: 51px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  &__text {
+    font-family: 'RobotoRegular';
+    font-size: 1rem;
+    color: $main-text;
+    line-height: 1.5rem;
+  }
+
+  &__person {
+    font-family: 'RobotoBold';
+    font-size: 1rem;
+    color: $reviews-slider;
+  }
+
+  &__post {
+    font-family: 'RobotoRegular';
+    font-size: 1rem;
+    color: $reviews-slider;
+  }
+
+  &__bottom {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+}
+
+.contact {
+  text-align: center;
+
+  &__wrap {
+    width: 300px;
+    margin: 0 auto 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    background-position: bottom;
+
+    @include tablet {
+      width: 380px;
+    }
+  }
+
+  &__title {
+    font-family: 'BerniertRegular';
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: $main-text;
+    
+    &:before,
+    &:after {
+      content: '– ';
+      font-family: 'BerniertRegular';
+      color: #cac9c9;
+    }
+
+    &:after {
+      content: ' -';
+    }
+  }
+
+  &__form {
+    @include clearfix
+  }
+
+  &__input {
+    border: none;
+    width: 100%;
+    padding: 19px 18px;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: 'RobotoRegular';
+    font-size: 1rem;
+    color: $form-text;
+  }
+
+  &__inner-wrap {
+    padding: 18px;
+  }
+
+  &__submit {
+    padding: 15px 0;
+    width: 50%;
+    float: left;
+    border: none;
+    font-family: 'RobotoMedium';
+    font-size: 1rem;
+    color: #fff;
+    background: rgba(#7eb9aa, .3);
+    transition: all .3s;
+    
+    &:hover {
+      background: rgba(#7eb9aa, 1);
+    }
+  }
+
+  &__arrow {
+    width: 26px;
+    margin-bottom: 52px;
+  }
+}
+
+.work-footer {
+  .footer {
+    background: #393e42;
+  }
+}
+
+.works-bottom {
+  background: url("/assets/img/works-bottom.png");
+  background-position: center;
+
+  @include tablet {
+    padding: 0 24px;
+  }
+}
