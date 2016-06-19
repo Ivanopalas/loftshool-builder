@@ -1,8 +1,7 @@
 .slider {
   margin-bottom: 30px;
-  @include clearfix
-
-  @include desktop {
+  @include clearfix();
+  @include laptop {
     height: 100vh;
   }
   
@@ -14,18 +13,34 @@
     text-align: center;
   }
 
+  &__display {
+    
+    @include laptop {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 70%;
+      z-index: 1;
+    }
+
+    img {
+      max-width: 90%;
+      min-width: 90%;
+
+      @include laptop {
+        @include centered;
+      }
+    }
+  }
+
   &__left,
   &__right {
     @include clearfix();
     
     @include laptop {
+      position: relative;
       width: 50%;
-    }
-  }
-  
-  &__left {
-    @include laptop {
-      float: left;
     }
   }
 
@@ -45,6 +60,10 @@
     text-align: center;
     color: $main-text;
 
+    @include laptop {
+      width: 100%;
+    }
+
     &:before,
     &:after {
       content: '- ';
@@ -59,6 +78,14 @@
       top: 50%;
     }
 
+  }
+
+  &__wrap {
+
+    @include laptop {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 
   &__info {
@@ -82,6 +109,17 @@
       float: left;
       height: 100%;
     }
+
+    &:before {
+
+      @include laptop {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+      }
+    }
+
   }
 
   &__right {
@@ -96,7 +134,7 @@
 
   &__controls {
     position: relative;
-    width: 50%;
+    width: 100%;
     float: left;
     @include clearfix();
 
@@ -111,19 +149,26 @@
   }
   
   &__controls-item {
+    position: relative;
     display: block;
-    width: 100%;
     height: 100%;
+    width: 50%;
+    float: left;
 
     &:after {
       content: '';
+      position: absolute;
       width: 43px;
       height: 27px;
+      display: block;
+      top: 50%;
+      left: 50%;
+      margin-top: -13px;
+      margin-left: -22px;
       z-index: 1;
       background: url("/assets/img/arrow_down.svg") no-repeat;
       -webkit-background-size: contain;
       background-size: contain;
-      @include centered();
     }
     
     &:before {
@@ -134,8 +179,17 @@
     }
   }
 
+  &__controls-item--next:after {
+    background: url("/assets/img/arrow_up.svg") no-repeat;
+  }
+
   &__controls-img {
-    width: 100%;
+    max-width: 90%;
+    max-height: 90%;
+
+    @include laptop {
+      @include centered
+    }
   }
 
 }

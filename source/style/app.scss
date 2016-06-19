@@ -13,14 +13,15 @@ h1 {
 }
 
 @import 'common/mixins';
+@import 'common/GUI';
+@import 'common/vars';
 @import 'common/works';
+@import 'common/blog';
 @import 'common/slider';
 @import 'common/title';
 @import 'common/header';
 @import 'common/border';
 @import 'common/fonts';
-@import 'common/vars';
-@import 'common/GUI';
 @import 'common/greating';
 @import 'common/main';
 

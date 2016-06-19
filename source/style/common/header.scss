@@ -1,7 +1,7 @@
 .header {
   position: relative;
   padding: 10px;
-  min-height: 550px;
+  min-height: 650px;
   background: url(/assets/img/main-img.jpg) no-repeat;
   -webkit-background-size: auto 100%;
   background-size: cover;
@@ -20,10 +20,15 @@
 
   &__about {
     font-family: 'RobotoLight';
+    font-size: 1rem;
     color: #fff;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 152px;
+  }
+
+  &__about--blog {
+    margin-bottom: 0px;
   }
 
   &__arrow {
@@ -118,4 +123,8 @@
 .traingle {
   margin: auto;
   fill: #efeee9;
+}
+
+.traingle--blog {
+  fill: #fff;
 }
