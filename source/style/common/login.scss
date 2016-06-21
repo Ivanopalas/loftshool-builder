@@ -1,0 +1,107 @@
+.login {
+  &__input {
+    display: table-cell;
+    position: relative;
+    float: left;
+    padding: 18px;
+    width: 100%;
+    background: #fff;
+    font-family: 'RobotoRegular';
+    font-size: 1rem;
+    color: $form-text;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    transition: ease-in-out .15s
+    
+    :focus {
+      outline: 0;
+      border-color: #66afe9;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 1px rgba(102, 175, 233, .6);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 1px rgba(102, 175, 233, .6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 1px rgba(102, 175, 233, .6);
+    }
+  }
+
+  &__title {
+    font-family: 'BerniertRegular';
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    color: $main-text;
+
+    &:before,
+    &:after {
+      content: '- ';
+      font-family: 'BerniertRegular';
+      font-size: 2.1rem;
+      color: #d1d2d2;
+    }
+
+    &:after {
+      content: ' -';
+    }
+  }
+
+  &__wrap {
+    margin: 0 auto;
+    width: 18rem;
+  }
+
+  &__form-text {
+    font-family: "RobotoBold";
+    font-size: 1.1rem;
+    color: $main-text;
+  }
+
+  &__nav {
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+  
+  &__link {
+    padding-top: 16px;
+    padding-bottom: 14px;
+    display: block;
+    float: left;
+    width: 50%;
+    text-decoration: none;
+    font-family: "RobotoMedium";
+    font-size: 1rem;
+    color: #fff;
+    background: $circle-color;
+    transition: all .3s;
+    
+    &:hover {
+      background: #009688;
+    }
+  }
+
+  &__link--border {
+    border-right: 2px solid rgba(#dee3e7, .5);
+  }
+}
+
+.input-group {
+  width: 100%;
+  position: relative;
+  display: table;
+  margin-bottom: 20px;
+
+  &__addon {
+    display: table-cell;
+    width: 44px;
+    text-align: center;
+    line-height: 1;
+    background: #f0efe9;
+    font-size: 1rem;
+    border-radius: 10px 0 0 10px;
+    vertical-align: middle;
+    color: #c4cbcd;
+  }
+}
+
+.margin-right {
+  margin-right: 20px;
+}

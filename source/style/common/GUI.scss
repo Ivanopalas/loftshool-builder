@@ -1,0 +1,71 @@
+.transparent-btn {
+  display: inline-block;
+  font-family: "RobotoMedium";
+  font-size: 1rem;
+  color: #fff;
+  padding: 15px 20px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all .3s;
+
+  @include tablet {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+
+  &:hover {
+    background: rgba(#fff, .7);
+    color: $circle-color;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display:none;
+
+  &+ label {
+    cursor: pointer;
+    display: inline-block;
+    font-family: "RobotoRegular";
+    font-size: 1.1rem;
+    color: $main-text;
+  }
+}
+
+input[type="checkbox"] + label:before {
+  font-family: "FontAwesome";
+  content: '\f096';
+  letter-spacing: 10px;
+  color: $circle-color;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked + label:before {
+  font-family: "FontAwesome";
+  content: '\f14a';
+  letter-spacing: 10px;
+  color: $circle-color;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+input[type="radio"] + label:before {
+  font-family: "FontAwesome";
+  content: '\f10c';
+  letter-spacing: 10px;
+  color: $circle-color;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+input[type="radio"]:checked + label:before {
+  font-family: "FontAwesome";
+  content: '\f192';
+  letter-spacing: 10px;
+  color: $circle-color;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}

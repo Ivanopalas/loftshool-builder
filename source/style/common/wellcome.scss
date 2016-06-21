@@ -1,0 +1,156 @@
+.wellcome-box {
+  position: relative;
+  text-align: center;
+  background: rgba(#fff, .85);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 22rem;
+
+  &__hidden {
+    display: none;
+    
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__nav {
+    
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  
+  &__list {
+    display: flex;
+    flex-grow: 1;
+    text-align: center;
+
+    &:not(:last-child) {
+      border-right: 2px solid #dee3e7;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #fff;
+    background: $circle-color;
+    flex-grow: 1;
+    transition: all .3s;
+
+    &:hover {
+      background: #0d8980;
+    }
+  }
+
+  &__photo {
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+  }
+  
+  &__subtitle {
+    color: $main-text;
+    font-family: "RobotoRegular";
+    font-size: 1rem;
+    margin-bottom: 35px;
+  }
+}
+
+.wellcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: url("/assets/img/main-img.jpg") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.center--wellcome {
+  padding: 37px 0 25px;
+}
+
+.title--wellcome {
+  font-family: "RobotoMedium";
+  color: $main-text;
+}
+
+.wellcome-bottom {
+  text-align: center;
+  font-family: 'RobotoLight';
+  font-size: 1rem;
+  color: #fff;
+
+  @include tablet {
+    p {
+      float: left;
+    }
+  }
+
+  span {
+    visibility: hidden;
+
+    @include tablet {
+      visibility: visible;
+    }
+  }
+}
+
+.wellcome-social {
+  margin-bottom: 84px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 0;
+  margin-bottom: 40px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0;
+
+  &__list {
+    display: inline-block;
+    vertical-align: bottom;
+
+    &:not(:last-child) {
+      margin-right: 28px;
+    }
+  }
+
+  &__item--vk {
+    background: url("/assets/img/vk_turquoise.svg") no-repeat;
+  }
+
+  &__item--github {
+    background: url("/assets/img/github_turquoise.svg") no-repeat;
+  }
+
+  &__item--linkedin {
+    background: url("/assets/img/in_turquoise.svg") no-repeat;
+  }
+
+  &__item {
+    display: block;
+    width: 26px;
+    height: 19px;
+    text-indent: -9999px;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    opacity: .5;
+    transition: all .3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

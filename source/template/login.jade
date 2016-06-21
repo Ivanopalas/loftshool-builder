@@ -1,0 +1,37 @@
+doctype html
+html
+    include common/_head
+    body
+        <!--[if lt IE 7]>
+        <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+        <![endif]-->
+
+        section.wellcome
+            .login__top-empty
+            .wellcome-box
+                h2.login__title авторизуйтесь
+                form(action="mailto:ivan.aksyutin@gmail.com" method="post" name="login").login__form
+                    .login__wrap
+                        .input-group
+                            span.input-group__addon
+                                i(aria-hidden="true").fa.fa-user
+                            input(type="text" placeholder="Логин").login__input
+                        .input-group
+                            span.input-group__addon
+                                i(aria-hidden="true").fa.fa-key
+                            input(type="text" placeholder="Пароль").login__input
+                        input(type="checkbox")#human.login__checkbox
+                        label(for="human") Я человек
+                        p.login__form-text Вы точно не робот?
+                        input(type="radio" name="human" value="yes")#rad1
+                        label(for="rad1").margin-right Да
+                        input(type="radio" name="human" value="yes")#rad2
+                        label(for="rad2") Не уверен
+                nav.login__nav
+                    ul
+                        li.login__list: a(href="#").login__link.login__link--border На главную
+                        li.login__list: a(href="#").login__link Войти
+            .wellcome-bottom
+                p &copy; Аксютин Иван
+                    span  |&#8239;
+                p создано с любовью в LoftSchool | 2016

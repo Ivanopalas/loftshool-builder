@@ -1,4 +1,20 @@
 .header-blog {
+  padding: 30px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: url("/assets/img/main-img.jpg") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+  .header__top {
+    margin-bottom: 20px;
+  }
+
+  .header__bottom {
+    bottom: -3px;
+  }
+
   &__title {
     font-family: "BerniertRegular";
     font-size: 2.5rem;
@@ -10,11 +26,13 @@
   }
 
   &__wrap-img {
+    margin: 0;
+    padding: 0;
     text-align: center;
   }
 
   &__img {
-    margin: -8rem auto 9rem;
+    margin: -8rem auto 0;
     width: 15rem;
     opacity: .1;
   }
@@ -24,7 +42,7 @@
 .article {
   margin: 25px 10px;
 
-  @include laptop {
+  @include tablet {
     margin: 50px 25px;
   }
 
@@ -54,6 +72,16 @@
 }
 
 .blog {
+  @include clearfix
+  
+  &__content {
+
+    @include laptop {
+      float: right;
+      width: 70%;
+    }
+  }
+
   &__menu {
     position: relative;
     top: 200px;
@@ -66,8 +94,39 @@
     -moz-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     
-    @include laptop {
+    @include tablet {
       display: none;
     }
+  }
+  
+  &__tabs {
+    display: none;
+    
+    @include laptop {
+      margin-top: 50px;
+      display: block;
+      float: left;
+      width: 25%;
+    }
+  }
+
+  &__subtitle {
+    
+    @include laptop {
+      display: block;
+      text-align: right;
+      padding-right: 20px;
+      font-family: "RobotoRegular";
+      color: $main-text;
+      font-size: 1.1rem;
+      line-height: 1.9rem;
+    }
+  }
+  
+  &__subtitle--active {
+    border-right: 3px solid $circle-color;
+    font-family: "RobotoBold";
+    color: $circle-color;
+    padding-right: 17px;
   }
 }

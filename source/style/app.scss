@@ -12,7 +12,9 @@ h1 {
   letter-spacing: 2px;
 }
 
+@import 'common/fonts';
 @import 'common/mixins';
+@import 'common/font-awesome';
 @import 'common/GUI';
 @import 'common/vars';
 @import 'common/works';
@@ -21,8 +23,9 @@ h1 {
 @import 'common/title';
 @import 'common/header';
 @import 'common/border';
-@import 'common/fonts';
 @import 'common/greating';
+@import 'common/wellcome';
+@import 'common/login';
 @import 'common/main';
 
 h3 {

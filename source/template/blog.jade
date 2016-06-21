@@ -6,7 +6,8 @@ html
         <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
         <![endif]-->
 
-        header.header
+
+        header.header-blog
             .header__top
                 ul.social
                     li.social__list: a(href='#').social__item.social__item--vk
@@ -21,7 +22,6 @@ html
                 p.header__about.header__about--blog Статьи, которые я написал
                 p.header-blog__wrap-img
                     img(src="/assets/img/blog_header.svg").header-blog__img
-            a(href='#').header__arrow
             .header__bottom
                 svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none").traingle.traingle--blog
                     polygon(points="0,0   0,86   500.8,86   500.8,75.5")
@@ -30,8 +30,6 @@ html
 
         section.blog
             .blog__menu
-            .blog__tabs
-
             .blog__content
                 .article
                     h4.article__title Самое важное в SASS
@@ -69,5 +67,10 @@ html
                             | способствует подготовки и реализации модели развития. С другой стороны рамки и место
                             | обучения кадров влечет за собой процесс внедрения и модернизации системы обучения кадров,
                             | соответствует насущным потребностям.
+            .blog__tabs
+                .blog__subtitle.blog__subtitle--active Самое важное в SASS
+                .blog__subtitle Приёмы в вёрстке, без которых не обходится ни один сайт
+                .blog__subtitle Самый необходимый набор Gulp плагинов
+                .blog__subtitle Почему я выбрал Jade
 
         include common/_footer

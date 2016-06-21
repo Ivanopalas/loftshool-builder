@@ -6,9 +6,24 @@ html
     <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
     <![endif]-->
 
-    .greating
-      .greating_text Just Do IT!!
-      .greating_picture
-
-    p.paragraph
-      | jsakl;fdkjsl;sfjkl;kfjdl;
+    section.wellcome
+      .wellcome-box__hidden
+      a(href="login.html").transparent-btn Авторизоваться
+      .wellcome-box
+        p.center.center--wellcome
+          img(src="/assets/img/myPhoto.jpg").wellcome-box__photo
+        h2.title.title--wellcome Аксютин Иван
+        p.wellcome-box__subtitle личный сайт веб разработчика
+        ul.wellcome-social
+          li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--vk
+          li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--github
+          li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--linkedin
+        nav.wellcome-box__nav
+          ul
+            li.wellcome-box__list: a(href="works.html").wellcome-box__link Мои работы
+            li.wellcome-box__list: a(href="about.html").wellcome-box__link Обо мне
+            li.wellcome-box__list: a(href="blog.html").wellcome-box__link Блог
+      .wellcome-bottom
+        p &copy; Аксютин Иван
+          span  |&#8239;
+        p создано с любовью в LoftSchool | 2016

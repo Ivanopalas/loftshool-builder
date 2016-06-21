@@ -80,7 +80,11 @@
   }
   
   &__subtitle {
-    text-align: left;
+    text-align: center;
+    
+    @include laptop {
+      text-align: left;
+    }
   }
 
   &__text {
@@ -109,7 +113,7 @@
     border-radius: 10px;
   }
 
-  @include desktop {
+  @include laptop {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -202,7 +206,7 @@
     margin-bottom: 20px;
     text-align: center;
 
-    @include desktop {
+    @include laptop {
       float: left;
       margin-left: 30px;
       margin-top: 10px;
@@ -241,14 +245,14 @@
   &__copyright {
     padding: 0 25px;
 
-    @include desktop {
+    @include laptop {
       float: right;
       margin-right: 5px;
     }
   }
 }
 
-@include desktop {
+@include laptop {
   .footer__text {
     float: left;
     width: 50%;
@@ -265,7 +269,7 @@
   text-align: center;
   font-size: 0;
 
-  @include desktop {
+  @include laptop {
     float: right;
     margin-right: 30px;
   }

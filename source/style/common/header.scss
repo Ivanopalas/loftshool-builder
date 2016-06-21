@@ -7,7 +7,8 @@
   background-size: cover;
   background-position: top;
 
-  @include desktop {
+  @include laptop {
+    height: 100vh;
     -webkit-background-size: 100% auto;
     background-size: 100% auto;
     background-position: top;
@@ -39,6 +40,18 @@
     background: url("/assets/img/arrow_down.svg") no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
+    opacity: .7;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @include laptop {
+      position: absolute;
+      bottom: 5rem;
+      left: 50%;
+      margin-left: -13px;
+    }
   }
 
   &__bottom {
@@ -46,6 +59,10 @@
     bottom: -4px;
     left: 0;
     right: 0;
+
+    @include laptop {
+      bottom: -3px;
+    }
   }
 }
 
