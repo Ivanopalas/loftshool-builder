@@ -1,6 +1,7 @@
 @import "mixins";
 
 .about {
+  width: 100%;
   position: relative;
   background: $section-about;
   padding: 25px 0;
@@ -18,37 +19,39 @@
     text-transform: uppercase;
     color: #373e42;
     text-align: center;
+
+    &:before,
+    &:after {
+      content: '- ';
+      letter-spacing: 5px;
+      font-family: 'BerniertRegular';
+      font-size: 2.5rem;
+      color: $main-text;
+      opacity: .2;
+    }
+
+    &:after {
+      content: ' -';
+    }
   }
 
   &__subtitle {
     background: $section-about;
     position: relative;
+    font-size: 1.5rem;
+    text-transform: uppercase;
 
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 125px;
-      height: 5px;
-      left: 50%;
-      margin-left: -62px;
-      top: 50%;
-      margin-top:-2px;
-      background: $section-title-line;
-      z-index: -2;
+    &:before,
+    &:after {
+      content: '- ';
+      font-family: "BerniertRegular";
+      letter-spacing: 5px;
+      color: $main-text;
+      opacity: .3;
     }
 
     &:after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 81px;
-      height: 16px;
-      background: $section-about;
-      top:8px;
-      left: 50%;
-      margin-left: -40px;
-      z-index:-1;
+      content: ' -';
     }
   }
 
@@ -68,6 +71,7 @@
 }
 
 .skills {
+  width: 100%;
   padding: 30px 10px;
   background: $section-skills;
 
@@ -76,11 +80,27 @@
   }
 
   &__title {
+    font-size: 1.5rem;
     text-align: center;
+
+    &:before,
+    &:after {
+      content: '- ';
+      letter-spacing: 5px;
+      font-family: "BerniertRegular";
+      font-size: 1.5rem;
+      color: $main-text;
+      opacity: .5;
+    }
+
+    &:after {
+      content: ' -';
+    }
   }
   
   &__subtitle {
     text-align: center;
+    margin: 20px 0;
     
     @include laptop {
       text-align: left;
@@ -132,6 +152,20 @@
   &__title {
     font-size: 2.5rem;
     color: #373e42;
+
+    &:before,
+    &:after {
+      content: '- ';
+      letter-spacing: 5px;
+      font-family: "BerniertRegular";
+      font-size: 2.5rem;
+      color: $main-text;
+      opacity: .2;
+    }
+
+    &:after {
+      content: ' -';
+    }
   }
 
   &__list {
@@ -187,129 +221,6 @@
   }
 }
 
-.footer {
-  background: rgba(0,0,0,.5);
-  padding: 15px 0 15px;
-
-  &__top {
-    border-bottom: 1px solid rgba(255,255,255,.3);
-    @include clearfix
-  }
-
-  &__bottom {
-    @include clearfix
-  }
-
-  &__menu {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 20px;
-    text-align: center;
-
-    @include laptop {
-      float: left;
-      margin-left: 30px;
-      margin-top: 10px;
-    }
-  }
-
-  &__list {
-    list-style-type: none;
-  }
-
-  &__item {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  &__item:not(:last-child) {
-    margin-right: 10px;
-  }
-
-  &__link {
-    font-family: 'RobotoMedium';
-    font-size: .9;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  &__text,
-  &__copyright {
-    padding: 0 15px;
-    font-family: 'RobotoLight';
-    line-height: 1.7;
-    color: #fff;
-    text-align: center;
-  }
-
-  &__copyright {
-    padding: 0 25px;
-
-    @include laptop {
-      float: right;
-      margin-right: 5px;
-    }
-  }
-}
-
-@include laptop {
-  .footer__text {
-    float: left;
-    width: 50%;
-    text-align: left;
-    margin-left: 15px;
-  }
-}
-
-.social-rounted {
-  list-style-type: none;
-  padding: 0;
-  padding-bottom: 20px;
-  margin: 0;
-  text-align: center;
-  font-size: 0;
-
-  @include laptop {
-    float: right;
-    margin-right: 30px;
-  }
-
-  &__item {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  &__link {
-    display: block;
-    height: 36px;
-    width: 36px;
-  }
-
-  &__link--vk {
-    background: url("/assets/img/vk_round.svg") no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-
-  &__link--github {
-    background: url("/assets/img/github_round.svg") no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-
-  &__link--link {
-    background: url("/assets/img/in_round.svg") no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-  }
-
-  &__item:not(:last-child) {
-    margin-right: 10px;
-  }
-
-}
-
-
 .map {
 
   &__wrap {
@@ -342,7 +253,7 @@
   
   &__text {
     font-family: 'RobotoRegular';
-    font-size: .9rem;
+    font-size: .8rem;
     color: $circle-color;
     position: absolute;
     top: 50%;
@@ -352,7 +263,7 @@
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 70px;
+    width: 65px;
     text-align: center;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -385,8 +296,18 @@
     display: inline-block;
     vertical-align: top;
 
-    &:not(:last-child) {
+    &:nth-child(odd) {
       margin-right: 35px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include tablet {
+      &:not(:last-child) {
+        margin-right: 35px;
+      }
     }
   }
 }
@@ -394,5 +315,25 @@
 .works-header {
   .traingle {
     fill: #faf8f0;
+  }
+}
+
+.about-header {
+  position: relative;
+
+  &__svg {
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    z-index: 4;
+    opacity: .1;
+  }
+}
+
+@include laptop {
+  .equalheight {
+    display: flex;
   }
 }

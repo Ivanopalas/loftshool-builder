@@ -1,0 +1,148 @@
+.footer {
+  background: rgba(0,0,0,.5);
+  padding: 15px 0 15px;
+
+  &__top {
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    @include clearfix
+  }
+
+  &__bottom {
+    @include clearfix
+  }
+
+  &__menu {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include laptop {
+      float: left;
+      margin-left: 30px;
+      margin-top: 10px;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__link {
+    font-family: 'RobotoMedium';
+    font-size: .9;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &__text,
+  &__copyright {
+    padding: 0 15px;
+    font-family: 'RobotoLight';
+    line-height: 1.7;
+    color: #fff;
+    text-align: center;
+  }
+
+  &__copyright {
+    padding: 0 25px;
+
+    @include laptop {
+      float: right;
+      margin-right: 5px;
+    }
+  }
+}
+
+@include laptop {
+  .footer__text {
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-left: 15px;
+  }
+}
+
+.social-rounted {
+  list-style-type: none;
+  padding: 0;
+  padding-bottom: 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 0;
+
+  @include laptop {
+    float: right;
+    margin-right: 30px;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__link {
+    display: block;
+    height: 36px;
+    width: 36px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+
+    &:hover {
+
+    }
+  }
+
+  &__link--vk {
+    background: url("/assets/img/vk.svg") no-repeat;
+    -webkit-background-size: 22px;
+    background-size: 22px;
+    background-position: center;
+
+    &:hover {
+      background: url("/assets/img/vk_round.svg") no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+  }
+
+  &__link--github {
+    background: url("/assets/img/github.svg") no-repeat;
+    -webkit-background-size: 17px;
+    background-size: 17px;
+    background-position: center;
+
+    &:hover {
+      background: url("/assets/img/github_round.svg") no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+  }
+
+  &__link--link {
+    background: url("/assets/img/in.svg") no-repeat;
+    -webkit-background-size: 16px;
+    background-size: 16px;
+    background-position: center;
+
+    &:hover {
+      background: url("/assets/img/in_round.svg") no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+}

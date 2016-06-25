@@ -4,7 +4,7 @@
   background: rgba(#fff, .85);
   border-radius: 10px;
   overflow: hidden;
-  min-width: 22rem;
+  width: 22rem;
 
   &__hidden {
     display: none;
@@ -60,6 +60,7 @@
     font-family: "RobotoRegular";
     font-size: 1rem;
     margin-bottom: 35px;
+    padding: 0 20px;
   }
 }
 

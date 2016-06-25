@@ -2,17 +2,49 @@
   padding: 10px;
 
   .main-title {
-    background: #fff;
+    background: transparent;
+    max-width: 405px;
+    margin: 0 auto;
+
+    &__centered {
+      margin-top: -9rem;
+
+      @media screen and (min-width: 400px) {
+        margin-top: -8rem;
+      }
+    }
     
     &__title {
-      background: #fff;
+      background: transparent;
+      text-align: center;
+      max-width: 415px;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        margin-top: 4px;
+        width: 22px;
+        height: 5px;
+        background: $dash;
+      }
+
+      &:after {
+        content: '';
+        right: 0px;
+        left: auto;
+      }
     }
   }
 }
 
 .reviews-slider {
-  @include clearfix
+  @include clearfix;
+  margin: 0 auto;
   margin-bottom: 30px;
+  max-width: 780px;
 
 
   &__item {
@@ -67,15 +99,18 @@
 }
 
 .contact {
+  position: relative;
   text-align: center;
+  padding-bottom: 52px;
 
   &__wrap {
+    position: relative;
     width: 300px;
     margin: 0 auto 100px;
     border-radius: 10px;
     overflow: hidden;
-    background: #fff;
     background-position: bottom;
+    background: rgba(#fff, .5);
 
     @include tablet {
       width: 380px;
@@ -105,6 +140,7 @@
   }
 
   &__input {
+    z-index: 9999;
     border: none;
     width: 100%;
     padding: 19px 18px;
@@ -128,17 +164,27 @@
     font-family: 'RobotoMedium';
     font-size: 1rem;
     color: #fff;
-    background: rgba(#7eb9aa, .3);
+    background: rgba(#00bfa5, .5);
     transition: all .3s;
     
     &:hover {
-      background: rgba(#7eb9aa, 1);
+      background: rgba(#00bfa5, 1);
     }
   }
 
+  &__submit--send {
+    border-right: 1px solid rgba(#dee3e7, .5);
+  }
+
   &__arrow {
+    display: block;
+    height: 17px;
     width: 26px;
-    margin-bottom: 52px;
+    margin: 0 auto;
+    background: url(/assets/img/arrow_up.svg) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    cursor: pointer;
   }
 }
 
@@ -162,4 +208,23 @@
   color: #373e42;
   opacity: .2;
   margin: 10px auto;
+}
+
+.works-header {
+  position: relative;
+  
+  &__svg {
+    display: none;
+    
+    @include tablet {
+      display: block;
+      position: absolute;
+      width: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: .1;
+      z-index: 5;
+    }  
+  }
 }

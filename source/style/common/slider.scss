@@ -1,5 +1,4 @@
 .slider {
-  margin-bottom: 30px;
   @include clearfix();
   @include laptop {
     height: 100vh;
@@ -25,6 +24,7 @@
     }
 
     img {
+      margin: auto;
       max-width: 90%;
       min-width: 90%;
 
@@ -61,21 +61,33 @@
     color: $main-text;
 
     @include laptop {
-      width: 100%;
+      width: 90%;
     }
 
     &:before,
     &:after {
-      content: '- ';
-      font-family: 'BerniertRegular';
-      font-size: 2rem;
-      color: $dash;
-      @include centered();
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      margin-top: -3px;
+      width: 22px;
+      height: 5px;
+      background: $dash;
+
+      @include laptop {
+        left: 0;
+      }
     }
 
     &:after {
-      content: ' –';
-      top: 50%;
+      content: '';
+      right: -30px;
+      left: auto;
+
+      @include laptop {
+        right: 0;
+      }
     }
 
   }
@@ -184,6 +196,7 @@
   }
 
   &__controls-img {
+    margin: auto;
     max-width: 90%;
     max-height: 90%;
 

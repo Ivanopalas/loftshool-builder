@@ -14,6 +14,17 @@
     background-position: top;
   }
 
+  &__wrap {
+
+    @include tablet {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      z-index: 7;
+    }
+  }
+
   &__top {
     @include clearfix
     margin-bottom: 84px;
@@ -26,6 +37,10 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 152px;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
   }
 
   &__about--blog {
@@ -61,7 +76,7 @@
     right: 0;
 
     @include laptop {
-      bottom: -3px;
+      bottom: -6px;
     }
   }
 }
@@ -110,7 +125,9 @@
 }
 
 .burger {
-  float: right;
+  position: absolute;
+  top: 25px;
+  right: 25px;
   font-size: 0;
   display: block;
   width: 25px;
@@ -118,6 +135,7 @@
   background: url("/assets/img/hamburger.svg") no-repeat;
   -webkit-background-size: contain;
   background-size: contain;
+  z-index: 45;
 }
 
 .photo {

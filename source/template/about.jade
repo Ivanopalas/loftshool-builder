@@ -8,9 +8,11 @@ html
         <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
         <![endif]-->
 
-    include common/_header
+    .about-header
+        img(src="/assets/img/about_header_white.svg").about-header__svg
+        include common/_header
 
-    .container.js-equalheight
+    .container.equalheight
         .half-column
 
             section.about
@@ -37,71 +39,71 @@ html
                         | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать
                         | не сложные задачи на Backend. Но давайте по порядку.
                 h5.skills__subtitle Frontend
-                    ul.progress
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text html 5
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text css3
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text javaskript & jQuery
+                ul.progress
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text html 5
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text css3
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text javaskript & jQuery
                 h5.skills__subtitle Backend
-                    ul.progress
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text PHP
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text mySQL
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text Node.js & npm
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text Monho.db
+                ul.progress
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text PHP
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text mySQL
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text Node.js & npm
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text Monho.db
                 h5.skills__subtitle WorkFlow
-                    ul.progress
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text Git
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text Gulp
-                        li.progress__item
-                            .circle__wrap
-                                svg(width="100%" height="100%").circle
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                    circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                                span.circle__text Bover
+                ul.progress
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text Git
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text Gulp
+                    li.progress__item
+                        .circle__wrap
+                            svg(width="100%" height="100%").circle
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
+                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
+                            span.circle__text Bover
 
 
     .map__wrap

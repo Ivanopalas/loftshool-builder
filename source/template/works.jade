@@ -9,7 +9,9 @@ html
     <![endif]-->
 
     .works-header
+      img(src="/assets/img/portfolio_header.svg").works-header__svg
       include common/_header
+
 
     +section-title('мои работы', 'about_header.svg')
 
@@ -66,10 +68,12 @@ html
                         input(type="text" placeholder="Имя").contact__input
                         input(type="email" placeholder="Email").contact__input
                         textarea(placeholder="Ваше сообщение" rows="4").contact__input
-                input(type="submit" value="Отправить").contact__submit.contact__submit--send
-                input(type="submit" value="Очистить").contact__submit.contact__submit--clear
+                    input(type="submit" value="Отправить").contact__submit.contact__submit--send
+                    input(type="submit" value="Очистить").contact__submit.contact__submit--clear
 
-            img(src="/assets/img/arrow_up.svg").contact__arrow
+            a(href="#").contact__arrow
 
     .work-footer
         include common/_footer
+
+    include common/_menu

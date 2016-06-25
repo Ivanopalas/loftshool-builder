@@ -12,7 +12,7 @@
   }
 
   .header__bottom {
-    bottom: -3px;
+    bottom: -6px;
   }
 
   &__title {
@@ -103,6 +103,7 @@
     display: none;
     
     @include laptop {
+      list-style-type: none;
       margin-top: 50px;
       display: block;
       float: left;
@@ -113,6 +114,7 @@
   &__subtitle {
     
     @include laptop {
+      text-decoration: none;
       display: block;
       text-align: right;
       padding-right: 20px;
