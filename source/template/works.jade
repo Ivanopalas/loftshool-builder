@@ -60,8 +60,12 @@ html
                         .reviews-slider__person Зар Захаров
                         .reviews-slider__post главный преподаватель
 
-        .contact
-            .contact__wrap
+        .blur-bg
+            img(src="/assets/img/works-bottom.jpg").blur-bg__img
+
+        .contact__wrap
+            .contact__form-blurred
+            .contact__form-wrapper
                 h4.contact__title связаться со мной
                 form(action="mailto:ivan.aksyutin@gmail.com" method="post" name="mailtome").contact__form
                     .contact__inner-wrap
@@ -69,11 +73,10 @@ html
                         input(type="email" placeholder="Email").contact__input
                         textarea(placeholder="Ваше сообщение" rows="4").contact__input
                     input(type="submit" value="Отправить").contact__submit.contact__submit--send
-                    input(type="submit" value="Очистить").contact__submit.contact__submit--clear
+                    input(type="submit" value="Очистить").contact__submit.contact__submit--cl
 
-            a(href="#").contact__arrow
+        a(href="#").contact__arrow
 
     .work-footer
         include common/_footer
-
     include common/_menu

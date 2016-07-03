@@ -1,10 +1,11 @@
-.menu__container
-    .menu__sliders
-    .menu__sliders
-    .menu__sliders
-    .menu
-        ul.menu__list
-            li.menu__item: a(href="#").menu__link Мои работы
-            li.menu__item: a(href="#").menu__link Блог
-            li.menu__item: a(href="#").menu__link Обо мне
-            li.menu__item: a(href="#").menu__link Авторизация
+#toggle.button_container
+    span.top
+    span.middle
+    span.bottom
+#overlay.overlay
+    nav.overlay-menu
+        ul.overlay-menu__list
+            li.overlay-menu__item: a(href='works.html').overlay-menu__link Мои работы
+            li.overlay-menu__item: a(href='blog.html').overlay-menu__link Блог
+            li.overlay-menu__item: a(href='about.html').overlay-menu__link Обо мне
+            li.overlay-menu__item.js-flip: a(href='index.html').overlay-menu__link Авторизация

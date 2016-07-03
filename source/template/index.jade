@@ -6,23 +6,61 @@ html
     <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
     <![endif]-->
 
+    include common/_preloader
+
+    .parallax
+      .parallax__layer: img(src="/assets/img/layer_1.jpg")
+      .parallax__layer: img(src="/assets/img/layer_2.png")
+      .parallax__layer: img(src="/assets/img/layer_3.png")
+      .parallax__layer: img(src="/assets/img/layer_4.png")
+      .parallax__layer: img(src="/assets/img/layer_5.png")
+      .parallax__layer: img(src="/assets/img/layer_6.png")
+      .parallax__layer: img(src="/assets/img/layer_7.png")
+
     section.wellcome
       .wellcome-box__hidden
-      a(href="login.html").transparent-btn Авторизоваться
-      .wellcome-box
-        p.center.center--wellcome
-          img(src="/assets/img/myPhoto.jpg").wellcome-box__photo
-        h2.title.title--wellcome Аксютин Иван
-        p.wellcome-box__subtitle личный сайт веб разработчика
-        ul.wellcome-social
-          li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--vk
-          li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--github
-          li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--linkedin
-        nav.wellcome-box__nav
-          ul
-            li.wellcome-box__list: a(href="works.html").wellcome-box__link Мои работы
-            li.wellcome-box__list: a(href="about.html").wellcome-box__link Обо мне
-            li.wellcome-box__list: a(href="blog.html").wellcome-box__link Блог
+      .transparent-btn.js-flip Авторизоваться
+      .flip-container
+        .flip-container__flipper
+          .flip-container__front
+            .wellcome-box
+              p.center.center--wellcome
+                img(src="/assets/img/myPhoto.jpg").wellcome-box__photo
+              h2.title.title--wellcome Аксютин Иван
+              p.wellcome-box__subtitle личный сайт веб разработчика
+              ul.wellcome-social
+                li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--vk
+                li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--github
+                li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--linkedin
+              nav.wellcome-box__nav
+                ul
+                  li.wellcome-box__list: a(href="works.html").wellcome-box__link Мои работы
+                  li.wellcome-box__list: a(href="about.html").wellcome-box__link Обо мне
+                  li.wellcome-box__list: a(href="blog.html").wellcome-box__link Блог
+          .flip-container__back
+            .wellcome-box
+              h2.login__title авторизуйтесь
+              form(action="mailto:ivan.aksyutin@gmail.com" method="post" name="login").login__form
+                .login__wrap
+                  .input-group
+                    span.input-group__addon
+                      i(aria-hidden="true").fa.fa-user
+                    input(type="text" placeholder="Логин").login__input
+                  .input-group
+                    span.input-group__addon
+                      i(aria-hidden="true").fa.fa-key
+                    input(type="text" placeholder="Пароль").login__input
+                  input(type="checkbox")#human.login__checkbox
+                  label(for="human") Я человек
+                  p.login__form-text Вы точно не робот?
+                  input(type="radio" name="human" value="yes")#rad1
+                  label(for="rad1").margin-right Да
+                  input(type="radio" name="human" value="yes")#rad2
+                  label(for="rad2") Не уверен
+              nav.login__nav
+                ul
+                  li.login__list: .login__link.login__link--border.js-flip На главную
+                  li.login__list: a(href="#").login__link Войти
       .wellcome-bottom
         p &copy; Аксютин Иван
           span  |&#8239;

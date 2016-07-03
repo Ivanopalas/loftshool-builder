@@ -1,80 +1,190 @@
-.menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  z-index: 33;
-  transform: translateY(-100%);
-  transition: transform 0.5s;
-  transition-delay:0.5s;
-  visibility: hidden;
-  @include centered;
+$color-background: #F5F5F5;
+$color-main: #10c1a8;
+$color-active: #FFF;
+$color-link: #FFF;
 
-  &__container {
-    z-index: 32;
-    position: absolute;
-    top: 0;
-    display: flex;
-    align-items: stretch;
-    overflow: hidden;
-    height: 100%;
-    width: 100vw;
-    pointer-events: none;
+$button-height: 27px;
+$button-width: 35px;
+
+.button_container {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  height: $button-height;
+  width: $button-width;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+
+
+  &:hover {
+    opacity: .7;
   }
 
-  &__item {
-    font-family: "BerniertRegular";
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
-
-  &__list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-
-  &__link {
-    font-family: "BerniertRegular";
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #fff;
-    text-decoration: none;
-    font-size: 2.5rem;
-  }
-
-  &__sliders {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: flex 0.45s;
-    &:nth-child(2) {
-      flex:1 0 100%;
-      background: transparent;
+  &.active {
+    .top {
+      transform: translateY(10px) translateX(0) rotate(45deg);
+      background: $color-active;
     }
-    &:nth-child(odd){
-      background: rgba($circle-color, .87);
+    .middle {
+      opacity: 0;
+      background: $color-active;
+    }
+
+    .bottom {
+      transform: translateY(-10px) translateX(0) rotate(-45deg);
+      background: $color-active;
+    }
+  }
+
+  span {
+    background: $color-active;
+    border: none;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    transition:  all .35s ease;
+    cursor: pointer;
+
+    &:nth-of-type(2) {
+      top: 10px;
+    }
+
+    &:nth-of-type(3) {
+      top: 20px;
     }
   }
 }
 
-body.menu--open {
-  .menu__sliders:nth-child(2) {
-    flex:0 0 0%;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, width .35s;
+  z-index: 50;
+
+  &:before {
+    content: '';
+    background: $color-main;
+    left: -55%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    transition: left .35s ease;
   }
-  .menu {
-    transform: translateY(0%);
+
+  &:after {
+    content: '';
+    background: $color-main;
+    right: -55%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    transition: all .35s ease;
+  }
+
+  &.open {
+    opacity: .9;
     visibility: visible;
-    pointer-events:all;
+    height: 100%;
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+
+    li {
+      animation: fadeInRight .5s ease forwards;
+      animation-delay: .35s;
+
+      &:nth-of-type(2) {
+        animation-delay: .45s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: .55s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: .65s;
+      }
+    }
+  }
+  nav {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    text-align: center;
+    z-index: 100;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+
+    li {
+      display: block;
+      height: 25%;
+      height: calc(100% / 4);
+      min-height: 50px;
+      position: relative;
+      opacity: 0;
+
+      a {
+        font-family: 'BerniertRegular';
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        display: block;
+        position: relative;
+        color: $color-link;
+        text-decoration: none;
+        overflow: hidden;
+
+        &:hover:after,
+        &:focus:after,
+        &:active:after {
+          width: 100%;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0%;
+          transform: translateX(-50%);
+          height: 3px;
+          background: $color-link;
+          transition: .35s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
   }
 }

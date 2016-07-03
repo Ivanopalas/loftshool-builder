@@ -149,6 +149,21 @@
     border-radius: 10px;
   }
 
+  &__wrap {
+
+    @include tablet {
+      position: absolute;
+      width: 100%;
+      height: calc(850px - 237px);
+    }
+
+    @include laptop {
+      position: absolute;
+      width: 100%;
+      height: calc(850px - 153px);
+    }
+  }
+
   &__title {
     font-size: 2.5rem;
     color: #373e42;
@@ -336,4 +351,10 @@
   .equalheight {
     display: flex;
   }
+}
+
+.map {
+  width: 100%;
+  height: 850px;
+  z-index: -1;
 }

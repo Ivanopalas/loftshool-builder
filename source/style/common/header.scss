@@ -2,10 +2,7 @@
   position: relative;
   padding: 10px;
   min-height: 650px;
-  background: url(/assets/img/main-img.jpg) no-repeat;
-  -webkit-background-size: auto 100%;
-  background-size: cover;
-  background-position: top;
+  overflow: hidden;
 
   @include laptop {
     height: 100vh;
@@ -18,10 +15,21 @@
 
     @include tablet {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -60%);
+      top: 40%;
+      left: 0;
+      right: 0;
       z-index: 7;
+    }
+  }
+  
+  &__bg {
+    height: 1276px;
+    @include centered
+
+    img {
+      min-width: 1000px;
+      display: block;
+      max-width: 100%;
     }
   }
 
@@ -55,10 +63,14 @@
     background: url("/assets/img/arrow_down.svg") no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
+    cursor: pointer;
     opacity: .7;
+    z-index: 12;
+    transition: all .3s;
 
     &:hover {
       opacity: 1;
+      transform: translateY(5px);
     }
 
     @include laptop {
@@ -122,20 +134,6 @@
       opacity: 1;
     }
   }
-}
-
-.burger {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  font-size: 0;
-  display: block;
-  width: 25px;
-  height: 22px;
-  background: url("/assets/img/hamburger.svg") no-repeat;
-  -webkit-background-size: contain;
-  background-size: contain;
-  z-index: 45;
 }
 
 .photo {

@@ -102,15 +102,29 @@
   position: relative;
   text-align: center;
   padding-bottom: 52px;
+  
+  &__form-blurred {
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/img/works-bottom.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+  }
+  
+  &__form-wrapper {
+    position: absolute;
+    top: 0;
+  }
 
   &__wrap {
     position: relative;
     width: 300px;
-    margin: 0 auto 100px;
+    height: 485px;
+    margin: 0 auto 50px;
     border-radius: 10px;
     overflow: hidden;
-    background-position: bottom;
-    background: rgba(#fff, .5);
 
     @include tablet {
       width: 380px;
@@ -118,6 +132,7 @@
   }
 
   &__title {
+    text-align: center;
     font-family: 'BerniertRegular';
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -181,10 +196,18 @@
     height: 17px;
     width: 26px;
     margin: 0 auto;
+    margin-bottom: 40px;
     background: url(/assets/img/arrow_up.svg) no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
     cursor: pointer;
+    opacity: .7;
+    transition: all .3s linear;
+
+    &:hover {
+      transform: translateY(-5px);
+      opacity: 1;
+    }
   }
 }
 
@@ -195,8 +218,8 @@
 }
 
 .works-bottom {
-  background: url("/assets/img/works-bottom.png");
-  background-position: center;
+  position: relative;
+  overflow: hidden;
 
   @include tablet {
     padding: 0 24px;
@@ -226,5 +249,16 @@
       opacity: .1;
       z-index: 5;
     }  
+  }
+}
+
+.blur-bg {
+  @include centered();
+  min-width: 1500px;
+  z-index: -1;
+
+  &__img {
+    width: 100%;
+    display: block;
   }
 }

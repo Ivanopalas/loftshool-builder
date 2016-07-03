@@ -8,6 +8,8 @@ html
         <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
         <![endif]-->
 
+        include common/_preloader
+
     .about-header
         img(src="/assets/img/about_header_white.svg").about-header__svg
         include common/_header
@@ -105,18 +107,19 @@ html
                                 circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
                             span.circle__text Bover
 
-
     .map__wrap
 
-        section.contacts
-            h3.contacts__title контакты
-            ul.contacts__list
-                li: a(href='#').contacts__item.contacts__item--skype Ivanopalas
-                li: a(href='#').contacts__item.contacts__item--mail ivan.aksyutin@gmail.com
-                li: a(href='#').contacts__item.contacts__item--phone +38 (095) 221-90-01
-                li: a(href='#').contacts__item.contacts__item--adress Donetsk
-
-        iframe( src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5337.3615916219605!2d37.80350524864198!3d48.01987653514938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xa4ee2c35505a72fe!2z0JTQvtC90LHQsNGB0YEg0JDRgNC10L3QsA!5e0!3m2!1sru!2sua!4v1465827825041" width="100%" height="700px" frameborder="0" style="border:0" allowfullscreen)
+        .contacts__wrap
+            section.contacts
+                h3.contacts__title контакты
+                ul.contacts__list
+                    li: a(href='#').contacts__item.contacts__item--skype Ivanopalas
+                    li: a(href='#').contacts__item.contacts__item--mail ivan.aksyutin@gmail.com
+                    li: a(href='#').contacts__item.contacts__item--phone +38 (095) 221-90-01
+                    li: a(href='#').contacts__item.contacts__item--adress Donetsk
+        .map#map
 
         .map__footer
             include common/_footer
+
+    include common/_menu

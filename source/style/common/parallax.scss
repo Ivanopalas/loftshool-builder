@@ -1,0 +1,22 @@
+.parallax {
+  height: 100%;
+  overflow: hidden;
+  @include centered;
+
+  &__layer {
+    width: 1500px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -750px;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      display: block;
+      bottom: 0;
+    }
+  }
+}

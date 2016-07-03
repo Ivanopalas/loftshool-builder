@@ -12,6 +12,9 @@ h1 {
 @import 'common/font-awesome';
 @import 'common/GUI';
 @import 'common/vars';
+@import 'common/preloader';
+@import 'common/parallax';
+@import 'common/flip';
 @import 'common/footer';
 @import 'common/works';
 @import 'common/blog';
@@ -29,6 +32,7 @@ body {
   margin: 0;
   font-size: 14px;
   overflow-x: hidden;
+  position: relative;
 
   @include laptop {
     font-size: 16px;
