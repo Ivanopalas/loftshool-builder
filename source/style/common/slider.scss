@@ -1,208 +1,315 @@
 .slider {
-  @include clearfix();
-  @include laptop {
-    height: 100vh;
-  }
-  
-  &__left,
-  &__right,
-  &__display img{
-    padding: 0px 5px;
-    width: 100%;
+  display: flex;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+
+  background-color: rgba(#ccc, .5);
+
+  flex-flow: column wrap;
+  &__about {
+    display: flex;
+
     text-align: center;
-  }
 
-  &__display {
-    
-    @include laptop {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 100%;
-      height: 70%;
-      z-index: 1;
-    }
+    background-color: $c1;
 
-    img {
-      margin: auto;
-      max-width: 90%;
-      min-width: 90%;
-
-      @include laptop {
-        @include centered;
-      }
-    }
-  }
-
-  &__left,
-  &__right {
-    @include clearfix();
-    
-    @include laptop {
-      position: relative;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+    flex: 1 0 auto;
+    @include tablet {
       width: 50%;
+
+      flex: 0 0 100%;
+      order: 0;
     }
   }
-
-  &__right {
-    position: relative;
-    padding: 0;
+  &__about-wrapper {
+    padding: 31px 0;
   }
-
-  &__title {
-    display: block;
+  &__about-name {
     position: relative;
-    width: 50%;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    font-family: 'BerniertRegular';
-    font-size: 1.5rem;
-    text-align: center;
-    color: $main-text;
-
-    @include laptop {
-      width: 90%;
-    }
+    font-family: 'BERNIER Regular';
+    color: $section-title;
+    font-size: 2.5rem;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 35px;
 
     &:before,
     &:after {
       content: '';
       position: absolute;
       top: 50%;
-      left: -30px;
-      margin-top: -3px;
+      left: -20px;
       width: 22px;
       height: 5px;
-      background: $dash;
-
-      @include laptop {
-        left: 0;
-      }
+      background: rgba($main-text, .5);
+      margin-top: -3px;
     }
 
     &:after {
-      content: '';
-      right: -30px;
       left: auto;
-
-      @include laptop {
-        right: 0;
-      }
-    }
-
-  }
-
-  &__wrap {
-
-    @include laptop {
-      display: inline-block;
-      vertical-align: middle;
+      right: -20px;
     }
   }
-
-  &__info {
-    margin-bottom: 20px;
-    padding: 10px 0;
+  &__about-description {
     font-family: 'RobotoMedium';
-    font-size: 1rem;
     color: $circle-color;
-    text-transform: uppercase;
+    display: block;
+
+    margin-bottom: 17px;
+    padding: 20px 0;
+
     text-align: center;
-    border: 1px solid transparent;
-    border-top-color: $circle-color;
-    border-bottom-color: $circle-color;
+
+    color: $circle-color;
+    border-bottom: 1px solid rgba($circle-color, .7);
+    border-top: 1px solid rgba($circle-color, .7);
   }
+  &__about-button {
+    position: relative;
 
+    display: inline-block;
 
-  &__left {
-    background: $slider-left-column;
+    padding: 21px;
+    padding: 14px 19px 14px 53px;
 
-    @include laptop {
-      float: left;
-      height: 100%;
+    transition: all .25s;
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 7px;
+    background-color: $circle-color;
+
+    line-height: 1;
+    &:hover {
+      background-color: darken($circle-color, 7);
     }
+    &:active {
+      background-color: lighten($circle-color, 7);
+    }
+  }
+  &__about-button-icon {
+    position: absolute;
+    top: 50%;
+    left: 21px;
 
-    &:before {
+    width: 20px;
+    height: 19px;
 
-      @include laptop {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        height: 100%;
+    transform: translateY(-50%);
+
+    fill: #fff;
+  }
+  &__main {
+    position: relative;
+
+    display: flex;
+
+    min-height: 200px;
+
+    background-color: $c17;
+
+    flex: 1 0 auto;
+    order: 0;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      width: 50%;
+      padding: 0;
+
+      flex: 0 0 70%;
+      order: 1;
+    }
+  }
+  &__main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: 50% 50% no-repeat;
+    background-size: 60% auto;
+    //
+    //@include breakpoint((min-width: 540px)) {
+    //  background-size: 50% auto;
+    //}
+    //@include breakpoint((min-height 850px)) {
+    //  background-size: 78% auto;
+    //}
+  }
+  &__work-list {
+    position: absolute;
+
+    visibility: hidden;
+    overflow: hidden;
+
+    width: 0;
+    height: 0;
+
+    list-style-type: none;
+  }
+  &__work-img {
+    width: 77.5%;
+    height: auto;
+
+    @include tablet {
+      max-height: 79.23809524%;
+    }
+  }
+  &__controls {
+    display: flex;
+
+    min-height: 100px;
+
+    background-color: #e3ded0;
+
+    flex: 1 0 auto;
+    order: 2;
+    @include tablet {
+      width: 50%;
+
+      flex: 0 0 30%;
+      order: 1;
+    }
+  }
+  &__control {
+    position: relative;
+    z-index: 1;
+
+    flex: 1 0 50%;
+    &:after {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      content: '';
+
+      background-color: rgba(147, 153, 141, 0.7);;
+    }
+    &:hover {
+      cursor: pointer;
+      .slider__control-ic_down {
+        transform: translateY(15px);
+      }
+      .slider__control-ic_up {
+        transform: translateY(-15px);
       }
     }
-
-  }
-
-  &__right {
-    background: $slider-right-column;
-
-    @include laptop {
-      float: right;
-      height: 100%;
-      position: relative;
+    &:active {
+      .slider__control-ic_down {
+        transition-duration: .15s;
+        transform: translateY(20px);
+      }
+      .slider__control-ic_up {
+        transition-duration: .15s;
+        transform: translateY(-20px);
+      }
     }
   }
-
-  &__controls {
+  &__control-wrapper {
     position: relative;
+
+    overflow: hidden;
+
     width: 100%;
-    float: left;
-    @include clearfix();
-
-    @include laptop {
-      width: 100%;
-      position: absolute;
-      height: 30%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-  }
-  
-  &__controls-item {
-    position: relative;
-    display: block;
     height: 100%;
-    width: 50%;
-    float: left;
+  }
+  &__control-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    &:after {
-      content: '';
-      position: absolute;
-      width: 43px;
-      height: 27px;
-      display: block;
-      top: 50%;
-      left: 50%;
-      margin-top: -13px;
-      margin-left: -22px;
-      z-index: 1;
-      background: url("/assets/img/arrow_down.svg") no-repeat;
-      -webkit-background-size: contain;
-      background-size: contain;
+    width: 100%;
+    height: 100%;
+    &_current,
+    &_next {
+      background: 50% 50% no-repeat;
+      background-size: 60% auto;
+
+      @include tablet {
+        background-size: 75% auto;
+      }
     }
-    
-    &:before {
-      content: '';
-      z-index: 1;
-      @include centered();
-      background: rgba(#888372, .5);
+    &_current {
+    }
+    &_next {
+      top: -100%;
     }
   }
+  &__control-ic {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
 
-  &__controls-item--next:after {
-    background: url("/assets/img/arrow_up.svg") no-repeat;
+    width: 43px;
+    height: 27px;
+    margin-top: -(27px / 2);
+    margin-left: (-43px / 2);
+
+    transition: all .35s;
+
+    filter: drop-shadow(1px 1.7px 2px rgba(0, 0, 0, 0.16));
+    fill: #fff;
   }
-
-  &__controls-img {
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%;
-
-    @include laptop {
-      @include centered
-    }
-  }
-
 }
+
+.link__svg {
+  position: absolute;
+  top: 12px;
+  left: 18px;
+}
+
+// letters animation
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+  animation-duration: .6s;
+}
+

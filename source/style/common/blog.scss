@@ -99,19 +99,35 @@
       display: none;
     }
   }
-  
-  &__tabs {
-    display: none;
+
+  &__toggle {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: -9px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    cursor: pointer;
+    transition: all .2s;
+    border-radius: 50%;
+    background-color: $circle-color;
+    box-shadow: 3px 0 3px rgba(0, 0, 0, 0.2);
     
-    @include laptop {
-      list-style-type: none;
-      margin-top: 50px;
-      display: block;
-      float: left;
+    @include tablet {
+      display: none;
+    }
+
+    &:hover, &:active {
+      box-shadow: 3px 0 8px rgba(0, 0, 0, 0.5);
     }
   }
 
   &__subtitle {
+    display: block;
+    text-decoration: none;
+    color: #fff;
     
     @include laptop {
       text-decoration: none;
@@ -125,29 +141,88 @@
   }
 
   &__item {
-    padding-right: 20px;
+    font-family: 'RobotoRegular';
+    font-size: 1.1rem;
+    padding-right: 15px;
+    margin: 25px 0;
+
+    @include laptop {
+      padding-right: 20px;
+      font-size: 1.1rem;
+    }
   }
   
   &__item--active {
-    border-right: 3px solid $circle-color;
-    font-family: "RobotoBold";
-    color: $circle-color;
-    padding-right: 17px;
-    
-    .blog__subtitle {
+    font-family: 'RobotoBold';
+    color: #fff;
+
+    @include laptop {
+      border-right: 3px solid $circle-color;
+      font-family: "RobotoBold";
       color: $circle-color;
+      padding-right: 17px;
+
     }
+
+    .blog__subtitle {
+      color: #fff;
+
+      @include laptop {
+        color: $circle-color;
+      }
+    }
+  }
+
+  &__tabs {
+    list-style-type: none;
+    text-align: right;
+    @include clearfix()
   }
 }
 
 .left__col {
-  float: left;
-  width: 30%;
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  bottom: 0;
+  left: -270px;
+  width: 270px;
+  transition: all .35s;
+  animation: hideSidebar .5s;
+  background-color: $circle-color;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+  @include clearfix;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include laptop {
+    position: static;
+    display: block;
+    float: left;
+    width: 30%;
+    background: transparent;
+    transition: none;
+    animation: none;
+  }
+}
+
+.left__col--open {
+  left: 0;
+  box-shadow: 3px 0 3px rgba(0, 0, 0, 0.2);
+  animation: none;
 }
 
 .right_col {
-  float: right;
-  width: 70%;
+  @include tablet {
+    width: 100%;
+  }
+
+  @include laptop {
+    float: right;
+    width: 70%;
+  }
 }
 
 .fixed {
@@ -155,4 +230,29 @@
   top: 0;
   left: 0;
   right: 0;
+}
+
+.menu__wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: right;
+  background-color: $circle-color;
+  
+  @include laptop {
+    position: static;
+    background: transparent;
+    transform: none;
+  }
+}
+
+@keyframes hideSidebar {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -90%;
+  }
 }

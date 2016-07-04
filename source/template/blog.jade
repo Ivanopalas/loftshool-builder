@@ -34,13 +34,15 @@ html
 
 
         section.blog__container.static
-            .left__col
+            .left__col#js-sidebar-container
                 .menu__wrapper
                     ul.blog__tabs
                         li.blog__item: a(href="#one").blog__subtitle.js-blog__link Самое важное в SASS
                         li.blog__item: a(href="#two").blog__subtitle.js-blog__link Приёмы в вёрстке, без которых не обходится ни один сайт
                         li.blog__item: a(href="#three").blog__subtitle.js-blog__link Самый необходимый набор Gulp плагинов
                         li.blog__item: a(href="#four").blog__subtitle.js-blog__link Почему я выбрал Jade
+                .blog__toggle
+
             .right_col
                 .article(data-section="one")
                     h4.article__title Самое важное в SASS

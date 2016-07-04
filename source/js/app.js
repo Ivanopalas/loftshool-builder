@@ -139,18 +139,64 @@ $('.js-flip').on('click', function(e) {
 
 $(document).ready(function() {
 
+    if ($('.js-slider').length) {
+
+        slider();
+
+    }
+
     if ($('.js-blog__link').length) {
+
+        if (window.location.hash) {
+
+            showSection(window.location.hash, false);
+
+        }
 
         $('.js-blog__link').on('click', function (e) {
 
             e.preventDefault();
             showSection($(this).attr('href'), true);
-            console.log('click');
-        });
 
-        showSection(window.location.hash, false);
+        });
+    }
+
+    if($('.js-blog__link').length && $(window).width() < 768) {
+
+        (function () {
+            var
+                body = $('body'),
+                sidebar = $('#js-sidebar-container'),
+                touchStartX = 0,
+                touchEndX = 0,
+                threshold = 100;
+
+            body.on('touchstart', function (event) {
+                if ($(window).width() >= 1200)
+                    return;
+
+                var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
+
+                touchStartX = touch.pageX;
+            });
+
+            body.on('touchend', function (event) {
+                if ($(window).width() >= 1200)
+                    return;
+
+                var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
+
+                touchEndX = touch.pageX;
+
+                if (touchEndX - touchStartX > threshold && !sidebar.hasClass('left__col--open'))
+                    sidebar.addClass('left__col--open');
+                else if (touchEndX - touchStartX < -threshold && sidebar.hasClass('left__col--open'))
+                    sidebar.removeClass('left__col--open');
+            });
+        }())
 
     }
+
 
     if($('.parallax').length) {
 
@@ -226,7 +272,7 @@ $(window).scroll(function() {
         }
     }());
 
-    if($('.static').length) {
+    if($('.static').length && $(window).width() > 768) {
 
         var
             menu = $('.static .blog__tabs'),
@@ -418,3 +464,140 @@ if ($('#map').length) {
         });
     }
 }
+
+// slider
+
+function slider() {
+    //noinspection JSDuplicatedDeclaration
+    var
+        slider = $('.js-slider'),
+    // Инфа
+        image = slider.find('.js-slider__slide-image'),
+        name = slider.find('.js-slider__slide-name'),
+        description = slider.find('.js-slider__slide-description'),
+        link = slider.find('.js-slider__slide-link'),
+    // Кнопки
+        prevButton = slider.find('.js-slider__prev'),
+        prevButtonImageCurrent = prevButton.find('.js-slider__control-image_current'),
+        prevButtonImageNext = prevButton.find('.js-slider__control-image_next'),
+        nextButton = slider.find('.js-slider__next'),
+        nextButtonImageCurrent = nextButton.find('.js-slider__control-image_current'),
+        nextButtonImageNext = nextButton.find('.js-slider__control-image_next'),
+    // Слайды
+        items = slider.find('.js-slider__item'),
+        current = 0,
+        currentSlideItem,
+        prevSlideItem,
+        nextSlideItem;
+
+    function validate(num) {
+        var result;
+
+        if (num < 0)
+            result = items.length - 1;
+        else if (num > items.length - 1)
+            result = 0;
+        else
+            result = num;
+
+        return result;
+    }
+
+    function calcSlides() {
+        var
+            prev = validate(current - 1),
+            next = validate(current + 1);
+
+        currentSlideItem = items.eq(current);
+        prevSlideItem = items.eq(prev);
+        nextSlideItem = items.eq(next);
+    }
+
+    function init() {
+        calcSlides();
+
+        changeSlide();
+    }
+
+    function changeBackground(elem, background) {
+        elem.css('background-image', 'url("' + background + '")');
+
+        return elem;
+    }
+
+    function changeSlideControl(next, current, background, direction) {
+        if (direction) {
+            next.css('top', '100%')
+        }
+
+        changeBackground(next, background).animate({
+            top: '0%'
+        }, function () {
+            $(this).css('top', direction ? '100%' : '-100%');
+        });
+
+        current.animate({
+            top: direction ? '-100%' : '100%'
+        }, function () {
+            changeBackground($(this), background).css('top', '0');
+        });
+    }
+
+    function textChange(elem, text, animationName) {
+        var
+            letters = text.split(''),
+            str = '<span style="display: inline-block;">',
+            animationDelay = 0;
+
+        letters.forEach(function (letter, id) {
+            animationDelay++;
+
+            if (letter === ' ') {
+                str += '&nbsp;</span><span style="display: inline-block;">';
+            } else {
+                str += '<span id="letter-' + id + '" class="' + animationName
+                    + '" style="display: inline-block; animation-delay:'
+                    + animationDelay / 20
+                    + 's">'
+                    + letter
+                    + '</span>';
+            }
+
+        });
+        str += '</span>';
+        elem.html(str);
+    }
+
+    function changeSlide() {
+        // Смена главного изображения
+        image.fadeOut(300, function () {
+            changeBackground($(this), currentSlideItem.data('img')).fadeIn();
+        });
+
+        // Смена текста
+        textChange(name, currentSlideItem.data('name'), 'bounceIn');
+        textChange(description, currentSlideItem.data('description'), 'bounceIn');
+        link.attr('href', currentSlideItem.data('link'));
+
+        // Смена слайдов в контролах
+        changeSlideControl(prevButtonImageNext, prevButtonImageCurrent, prevSlideItem.data('img'));
+        changeSlideControl(nextButtonImageNext, nextButtonImageCurrent, nextSlideItem.data('img'), true);
+    }
+
+    function nextSlide() {
+        current = validate(++current);
+        calcSlides();
+        slider.trigger('changeSlide');
+    }
+
+    function prevSlide() {
+        current = validate(--current);
+        calcSlides();
+        slider.trigger('changeSlide');
+    }
+
+    $(window).load(init);
+    slider.on('changeSlide', changeSlide);
+    nextButton.click(nextSlide);
+    prevButton.click(prevSlide);
+};

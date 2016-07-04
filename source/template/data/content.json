@@ -1,0 +1,28 @@
+{
+  "works": {
+    "work1": {
+      "name": "Сайт школы онлайн образования",
+      "description": "HTML , CSS, JAVASCRIPT",
+      "link": "#111",
+      "img": "assets/img/slider_1.png"
+    },
+    "work2": {
+      "name": "Работа 2",
+      "description": "HTML , CSS, JAVASCRIPT",
+      "link": "#222",
+      "img": "assets/img/slider_2.jpg"
+    },
+    "work3": {
+      "name": "Работа 3",
+      "description": "HTML , CSS, JAVASCRIPT",
+      "link": "#333",
+      "img": "assets/img/slider_3.jpg"
+    },
+    "work4": {
+      "name": "Работа 4",
+      "description": "HTML , CSS, JAVASCRIPT",
+      "link": "#444",
+      "img": "assets/img/slider_4.jpg"
+    }
+  }
+}
