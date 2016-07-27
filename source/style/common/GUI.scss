@@ -9,6 +9,8 @@
   text-decoration: none;
   transition: all .3s;
   cursor: pointer;
+  z-index: 1;
+  margin-bottom: 10px;
 
   @include tablet {
     position: absolute;

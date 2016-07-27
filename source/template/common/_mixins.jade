@@ -4,3 +4,18 @@ mixin section-title(title, img)
     p.main-title__centered
       img(src='/assets/img/'+ img alt='my-photo').main-title__photo
 
+mixin skillsTable(title, skill1, skill2, skill3)
+  .tabs__subtitle #{title}
+  table.admin-table
+    tr
+      td.admin-table__col1 #{skill1}
+      td.admin-table__col2: input(type = 'text')
+      td %
+    tr
+      td.admin-table__col1 #{skill2}
+        td.admin-table__col2: input(type ='text')
+        td %
+    tr
+      td.admin-table__col1 #{skill3}
+      td.admin-table__col2: input(type = 'text')
+      td %

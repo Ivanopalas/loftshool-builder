@@ -1,0 +1,132 @@
+.admin-header {
+  background: $circle-color;
+  text-align: center;
+  padding: 20px 0 14px;
+
+  &__link {
+    color: #fff;
+    font-family: 'RobotoLight';
+    font-size: 1rem;
+  }
+
+  &__title {
+    color: #fff;
+    font-family: 'RobotoRegular';
+    font-size: 1.5rem;
+  }
+}
+
+.control {
+
+  &__list {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    
+    li {
+      font-family: 'RobotoMedium';
+      font-size: 1rem;
+      color: $main-text;
+      padding: 18px 0;
+      background: $tabs-bg-color;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+
+  &__tabs {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+.tabs {
+
+  &__content {
+    padding: 30px 10px;
+    background: url('/assets/img/admin-bg.jpg') no-repeat top center;
+    background-size: auto 100%;
+  }
+
+  &__title {
+    font-family: 'RobotoMedium';
+    font-size: 1.5rem;
+    color: $main-text;
+    text-align: left;
+  }
+  
+  &__subtitle {
+    font-family: 'RobotoMedium';
+    font-size: 1rem;
+    color: $main-text;
+  }
+}
+
+.admin-table {
+  font-family: 'RobotoRegular';
+  font-size: 1rem;
+  color: $main-text;
+  margin-bottom: 30px;
+
+  tr {
+    margin-bottom: 10px;
+  }
+  
+  &__col1 {
+    width: 105px;
+  }
+
+  &__col2 {
+    input {
+      padding: 4px;
+      font-family: 'RobotoMedium';
+      font-size: 1rem;
+      color: $form-text;
+      border-radius: 5px;
+      border: none;
+      width: 46px;
+    }
+  }
+}
+
+.submit-about {
+  font-family: 'RobotoMedium';
+  font-size: 1rem;
+  color: #fff;
+  padding: 15px 20px;
+  background: $circle-color;
+  border: none;
+  border-radius: 5px;
+}
+
+.tabs__content {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.tab {
+
+  &__form {
+    padding: 4px;
+    margin: 18px auto;
+  }
+
+  &__input,
+  &__textarea {
+    font-family: 'RobotoRegular';
+    font-size: .8rem;
+    color: $form-text;
+    padding: 15px 18px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+}

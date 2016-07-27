@@ -3,18 +3,21 @@ $color-main: #10c1a8;
 $color-active: #FFF;
 $color-link: #FFF;
 
-$button-height: 27px;
-$button-width: 35px;
+$button-height: 65px;
+$button-width: 65px;
 
 .button_container {
   position: fixed;
-  top: 5%;
+  top: 2%;
   right: 2%;
   height: $button-height;
   width: $button-width;
   cursor: pointer;
   z-index: 100;
   transition: opacity .25s ease;
+  background: $circle-color;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 
   &:hover {
@@ -41,19 +44,19 @@ $button-width: 35px;
     background: $color-active;
     border: none;
     height: 5px;
-    width: 100%;
+    width: 64%;
     position: absolute;
-    top: 0px;
-    left: 0;
+    top: 20px;
+    left: 12px;
     transition:  all .35s ease;
     cursor: pointer;
 
     &:nth-of-type(2) {
-      top: 10px;
+      top: 30px;
     }
 
     &:nth-of-type(3) {
-      top: 20px;
+      top: 40px;
     }
   }
 }

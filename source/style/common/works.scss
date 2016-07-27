@@ -114,6 +114,7 @@
   }
   
   &__form-wrapper {
+    width: 100%;
     border-radius: 10px;
     overflow: hidden;
     position: absolute;
@@ -263,4 +264,32 @@
     width: 100%;
     display: block;
   }
+}
+
+.field {
+  position: relative;
+  
+  i {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    display: none;
+  }
+}
+
+.success{
+  background-color: #EAFFF8;
+}
+.success+i{
+  color: #1C9D39;
+  display: block;
+}
+.error+i{
+  color: #B82020;
+  display: block;
+  top: 20px;
+  right: 15px;
+}
+.error{
+  background-color: #FFF1FF;
 }

@@ -1,3 +1,7 @@
+.index-body {
+  min-height: 600px;
+}
+
 .wellcome-box {
   position: relative;
   text-align: center;
@@ -92,6 +96,7 @@
   font-family: 'RobotoLight';
   font-size: 1rem;
   color: #fff;
+  z-index: 2;
 
   @include tablet {
     p {

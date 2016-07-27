@@ -55,12 +55,17 @@ html
                 h4.contact__title связаться со мной
                 form(action="mailto:ivan.aksyutin@gmail.com" method="post" name="mailtome").contact__form
                     .contact__inner-wrap
-                        input(type="text" placeholder="Имя").contact__input
-                        input(type="email" placeholder="Email").contact__input
-                        textarea(placeholder="Ваше сообщение" rows="4").contact__input
-                    input(type="submit" value="Отправить").contact__submit.contact__submit--send
-                    input(type="submit" value="Очистить").contact__submit.contact__submit--cl
-
+                        .field
+                            input(type="text" placeholder="Имя").contact__input.js-name
+                            i(aria-hidden="true")
+                        .field
+                            input(type="email" placeholder="Email").contact__input.js-email
+                            i(aria-hidden="true")
+                        .field
+                            textarea(placeholder="Ваше сообщение" rows="4").contact__input.js-message
+                            i(aria-hidden="true")
+                    input(type="submit" value="Отправить").contact__submit.contact__submit--send.js-submit
+                    input(type="submit" value="Очистить").contact__submit.contact__submit--cl.js-form__clear
         a(href="#").contact__arrow
 
     .work-footer

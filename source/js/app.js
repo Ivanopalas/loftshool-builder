@@ -137,7 +137,27 @@ $('.js-flip').on('click', function(e) {
 
 });
 
+
+/*------------------------------------------------------------------
+
+                                ready
+
+------------------------------------------------------------------*/
+
 $(document).ready(function() {
+
+    if ($('.js-tabs').length) {
+
+        $('ul.js-tabs').each(function () {
+            $(this).find('li').each(function (i) {
+                $(this).click(function () {
+                    $(this).addClass('active').siblings().removeClass('active')
+                        .closest('.controls').find('div.tabs__content').removeClass('active').eq(i).addClass('active');
+                });
+            });
+        });
+
+    }
 
     if ($('.js-slider').length) {
 
@@ -153,7 +173,7 @@ $(document).ready(function() {
 
         }
 
-        $('.js-blog__link').on('click', function (e) {
+        $('.js-sidebar-container, .left__col').on('click', '.js-blog__link', function (e) {
 
             e.preventDefault();
             showSection($(this).attr('href'), true);
@@ -198,7 +218,7 @@ $(document).ready(function() {
     }
 
 
-    if($('.parallax').length) {
+    if($('.parallax').length  && $(window).width() > 1024) {
 
         var layer = $('.parallax').find('.parallax__layer');
         var width = window.innerWidth + 100;
@@ -239,6 +259,13 @@ $(document).ready(function() {
 
 });
 
+
+/*----------------------------------------------------------------
+
+                              resize
+
+ ----------------------------------------------------------------*/
+
 $(window).resize(function () {
 
     if($('.blur-bg').length) {
@@ -248,6 +275,12 @@ $(window).resize(function () {
     }
 
 });
+
+/*----------------------------------------------------------------
+
+                                scroll
+
+ ----------------------------------------------------------------*/
 
 $(window).scroll(function() {
 
@@ -379,45 +412,32 @@ function parallax() {
 
 if ($('#map').length) {
 
-    google.maps.event.addDomListener(window, 'load', init);
+    function initMap() {
+        var
+            mapDiv = document.getElementById('map'),
+            isDraggable;
 
-    function init() {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            isDraggable = false;
+        } else {
+            isDraggable = true;
+        }
+
         var mapOptions = {
-            zoom: 15,
-
-            center: new google.maps.LatLng(48.0043666, 37.80217409), // New York
-
-            styles: [{
-                "featureType": "landscape.natural",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-            }, {
-                "featureType": "poi",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-            }, {
-                "featureType": "road",
-                "elementType": "labels",
-                "stylers": [{"visibility": "off"}]
-            }, {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [{"visibility": "on"}, {"lightness": 700}]
-            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+            center: {
+                lat: 50.445008,
+                lng: 30.514811
+            },
+            zoom: 12,
+            disableDefaultUI: true,
+            scrollwheel: false,
+            draggable: isDraggable,
+            styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.country","elementType":"geometry.fill","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"labels.text.fill","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.sports_complex","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit.station","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#2bd3b7"},{"visibility":"simplified"}]}]
         };
-        var mapElement = document.getElementById('map');
 
-        var map = new google.maps.Map(mapElement, mapOptions);
 
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(40.6700, -73.9400),
-            map: map,
-            title: 'Snazzy!'
-        });
+        var map = new google.maps.Map(mapDiv, mapOptions);
+
     }
 }
 
@@ -456,12 +476,7 @@ if ($('#map').length) {
         var mapElement = document.getElementById('map');
 
         var map = new google.maps.Map(mapElement, mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(40.6700, -73.9400),
-            map: map,
-            title: 'Snazzy!'
-        });
+        
     }
 }
 
@@ -600,4 +615,73 @@ function slider() {
     slider.on('changeSlide', changeSlide);
     nextButton.click(nextSlide);
     prevButton.click(prevSlide);
-};
+}
+
+// validate form
+
+$(function() {
+
+    var email = $('.js-email'),
+        name = $('.js-name'),
+        message = $('.js-message');
+
+    function validate(field) {
+        if (field.val().length === 0) {
+            field.addClass('error');
+            field.next().removeClass().addClass('fa fa-exclamation-triangle');
+        } else {
+            field.removeClass('error').addClass('success');
+            field.next().removeClass().addClass('fa fa-check');
+        }
+        return field;
+    }
+
+    $('.js-submit').on('click', function (e) {
+
+        e.preventDefault();
+
+        validate(email);
+        validate(name);
+        validate(message);
+
+        //if ($(email).val().length === 0 ||
+        //    $(name).val().length === 0 ||
+        //    $(message).val().length == 0) {
+        //
+        //    $(this).removeClass().addClass('submit-error');
+        //
+        //} else {
+        //
+        //    $(this).removeClass().addClass('submit-success');
+        //
+        //}
+    })
+});
+
+//clear form
+
+$(function () {
+
+    var email = $('.js-email'),
+        name = $('.js-name'),
+        message = $('.js-message');
+
+    function clear(field) {
+
+        field.removeClass('error success');
+        field.next().removeClass()
+        field.val('');
+        return field;
+
+    }
+
+
+    $('.js-form__clear').on('click', function (e) {
+
+        e.preventDefault();
+        clear(email);
+        clear(name);
+        clear(message);
+
+    })
+});
