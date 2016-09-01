@@ -34,8 +34,10 @@ html
                 .tabs__subtitle Добавить запись
                 form.tab__form(action='POST')
                     input.tab__input(type='text' name='title' placeholder='Название')
+                    br
                     input.tab__input(type='text' name='date' placeholder='Дата')
                     textarea.tab__textarea(rows='7' placeholder='Содержание')
+                    br
                     button.submit-about Добавить
 
             .tabs__content
@@ -43,6 +45,9 @@ html
                 .tabs__subtitle Добавить работу
                 form(action='POST').tab__form
                     input(type='text' name='name' placeholder='Название проекта').tab__input
+                    br
                     input(type='text' name='name' placeholder='Технологии').tab__input
+                    br
                     input(type='file' name='img' placeholder='me')
+                    br
                     button.submit-about Добавить

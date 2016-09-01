@@ -1,5 +1,6 @@
 .index-body {
   min-height: 600px;
+  overflow: hidden;
 }
 
 .wellcome-box {
@@ -95,7 +96,7 @@
   text-align: center;
   font-family: 'RobotoLight';
   font-size: 1rem;
-  color: #fff;
+  color: $main-text;
   z-index: 2;
 
   @include tablet {

@@ -1,22 +1,245 @@
-.parallax {
-  height: 100%;
-  overflow: hidden;
+#scene {
+  margin: 0;
+  padding: 0;
   @include centered;
+}
 
-  &__layer {
-    width: 1300px;
+.layer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  &__full-width {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -750px;
-    height: 100%;
+    max-width: 100%;
+    height: 100vh;
+    object-fit: cover;
 
-    img {
-      width: 100%;
-      height: auto;
-      position: absolute;
-      display: block;
-      bottom: 0;
+    @include laptop {
+      width: 100vw;
     }
+  }
+
+  &__animation {
+    left: 50%;
+    position: absolute;
+    width: 100px;
+    height: auto;
+
+    @include tablet {
+      width: 200px;
+    }
+
+    &--animated2 {
+      right: 2%;
+      left: auto;
+      bottom: 35%;
+
+      @include tablet {
+        right: 1%;
+        width: 150px;
+      }
+
+      @include laptop {
+        right: 18%;
+        left: auto;
+        bottom: 32%;
+      }
+    }
+
+    &--animated3 {
+      top: 24%;
+      left: 20%;
+
+      @include laptop {
+        left: 33%;
+        top: 15%;
+      }
+    }
+
+    &--animated4 {
+      width: 170px;
+      top: 35%;
+
+      @include tablet {
+        margin-right: 0;
+      }
+
+      @include laptop {
+        width: 200px;
+        left: 50%;
+        top: 35%;
+      }
+    }
+
+    &--animated5 {
+      top: 24%;
+      left: auto;
+      right: -2%;
+
+      @include tablet {
+        width: 150px;
+      }
+
+      @include laptop {
+        width: 150px;
+        right: 19%;
+        left: auto;
+        top: 5%;
+      }
+    }
+
+    &--animated6 {
+      bottom: 30%;
+      left: 20%;
+
+      @include tablet {
+        width: 150px;
+      }
+
+      @include laptop {
+        width: 150px;
+        left: 33%;
+        bottom: 22%;
+      }
+    }
+
+    &--animated8 {
+      top: 3%;
+      left: 3%;
+
+      @include laptop {
+        width: 250px;
+        top: 0;
+        left: 10%;
+      }
+    }
+
+    &--animated9 {
+      width: 200px;
+      bottom: 10%;
+      left: auto;
+      right: 2%;
+
+      @include tablet {
+        width: 270px;
+        right: 5%;
+      }
+
+      @include laptop {
+        width: 300px;
+        right: 10%;
+        bottom: auto;
+      }
+    }
+
+    &--animated10 {
+      width: 150px;
+      bottom: 5%;
+      left: 5%;
+
+      @include tablet {
+        width: 250px;
+        left: 7%;
+      }
+
+      @include laptop {
+        width: 300px;
+        left: auto;
+        right: 10%;
+        bottom: 5%;
+      }
+    }
+
+    &--animated11 {
+      top: 5%;
+      left: auto;
+      right: 3%;
+
+      @include laptop {
+        width: 300px;
+        left: 10%;
+        bottom: 5%;
+        right: auto;
+        top: auto;
+      }
+    }
+
+    &--animated12 {
+      width: 170px;
+      left: 30%;
+      top: 5%;
+      transform: rotate(10deg);
+
+      @include laptop {
+        width: 250px;
+        left: 40%;
+        top: auto;
+        transform: rotate(0);
+      }
+    }
+
+    &--animated13 {
+      display: none;
+
+      @include tablet {
+        width: 120px;
+        display: block;
+        left: 2%;
+        top: 25%;
+      }
+
+      @include laptop {
+        width: 140px;
+        left: 10%;
+        bottom: 40%;
+        top: auto;
+      }
+    }
+
+    &--animated14 {
+      display: none;
+
+      @include tablet {
+        width: 150px;
+        display: block;
+        left: 2%;
+        bottom: 36%;
+      }
+
+      @include laptop {
+        width: 150px;
+        left: 22%;
+        bottom: 45%;
+      }
+    }
+
+  }
+
+}
+
+.animate {
+  animation: tada .7s ease-in-out;
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
   }
 }

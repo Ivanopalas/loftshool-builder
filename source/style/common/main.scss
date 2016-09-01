@@ -97,15 +97,6 @@
       content: ' -';
     }
   }
-  
-  &__subtitle {
-    text-align: center;
-    margin: 20px 0;
-    
-    @include laptop {
-      text-align: left;
-    }
-  }
 
   &__text {
     font-family: 'RobotoRegular';
@@ -251,82 +242,6 @@
 
 }
 
-.circle {
-  width: 120px;
-  height: 120px;
-  fill: none;
-  stroke-width: 25;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  
-  &__wrap {
-    position: relative;
-  }
-  
-  &__text {
-    font-family: 'RobotoRegular';
-    font-size: .8rem;
-    color: $circle-color;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 65px;
-    text-align: center;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-  }
-  
-
-  &__sector {
-    stroke-dasharray: 70 314;
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -ms-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
-  }
-}
-
-.progress {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0;
-  text-align: center;
-
-  @include laptop {
-    text-align: left;
-  }
-
-  &__item {
-    display: inline-block;
-    vertical-align: top;
-
-    &:nth-child(odd) {
-      margin-right: 35px;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    @include tablet {
-      &:not(:last-child) {
-        margin-right: 35px;
-      }
-    }
-  }
-}
-
 .works-header {
   .traingle {
     fill: #faf8f0;
@@ -358,3 +273,193 @@
   height: 850px;
   z-index: -1;
 }
+
+/*-----------------------------------------------------------------------------
+    about-skills
+-----------------------------------------------------------------------------*/
+.about-skills {
+  &__category {
+    margin-bottom: 25px;
+
+    @include tablet {
+      margin-bottom: 39px;
+    }
+    @include laptop {
+      margin-bottom: 35px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__list {
+    display: flex;
+
+    width: 100%;
+    margin: 0;
+    margin-bottom: -27px;
+    padding: 0;
+
+    list-style-type: none;
+
+    justify-content: center;
+    flex-flow: row wrap;
+    @include laptop  {
+      justify-content: flex-start;
+    }
+  }
+  &__item {
+    margin: 0 18px 29px;
+
+    @include laptop {
+      margin: 0 35px 29px 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    @include xl-desktop {
+      margin-right: 38px;
+    }
+  }
+}
+
+.title_3 {
+  text-align: center;
+  
+  @include laptop {
+    text-align: left;
+  }
+}
+/*-----------------------------------------------------------------------------
+    /about-skills
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+    circle-progress
+-----------------------------------------------------------------------------*/
+.circle-progress {
+  position: relative;
+
+  display: block;
+
+  opacity: 0;
+
+  $bar-size: 110;
+  $bar-thickness: 20;
+  $circumference: ($bar-size - $bar-thickness) * 3.14159265359;
+  &.visible {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+
+    animation-fill-mode: both;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  &[data-percent='0'] .circle-progress__circle_fill {
+    opacity: 0;
+
+    stroke: none;
+  }
+  @for $i from 1 through 100 {
+    &[data-percent='#{$i}'] .circle-progress__circle_fill {
+      opacity: $i / 100;
+
+      stroke-dashoffset: $circumference - ($circumference / 100) * $i * 1px;
+    }
+    @keyframes circle-progress-animation-#{$i} {
+      0% {
+        opacity: 0;
+
+        stroke-dashoffset: $circumference;
+      }
+      33% {
+        opacity: $i / 100;
+      }
+      100% {
+        stroke-dashoffset: $circumference - ($circumference / 100) * $i * 1px;
+      }
+    }
+  }
+  &__svg {
+    display: block;
+
+    width: $bar-size * 1px;
+    height: $bar-size * 1px;
+    // +1px add extra pixel for anti-ailising either side
+    padding: ($bar-thickness / 2) * 1px;
+
+    transform: rotate(-90deg);
+  }
+  &__circle {
+    fill: none;
+    stroke-width: 20px;
+    &_path {
+      stroke: $c5;
+    }
+    &_fill {
+      stroke: $circle-color;
+      stroke-dasharray: $circumference * 1px;
+    }
+  }
+  &__n {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    color: $circle-color;
+
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+  }
+}
+
+@include xl-desktop {
+  .circle-progress {
+    $bar-size: 120;
+    $bar-thickness: 20;
+    $circumference: ($bar-size - $bar-thickness) * 3.14159265359;
+    @for $i from 1 through 100 {
+      &[data-percent='#{$i}'] .circle-progress__circle_fill {
+        opacity: $i / 100;
+
+        stroke-dashoffset: $circumference - ($circumference / 100) * $i * 1px;
+      }
+      @keyframes circle-progress-animation-#{$i} {
+        0% {
+          opacity: 0;
+
+          stroke-dashoffset: $circumference;
+        }
+        33% {
+          opacity: $i / 100;
+        }
+        100% {
+          stroke-dashoffset: $circumference - ($circumference / 100) * $i * 1px;
+        }
+      }
+    }
+    &__svg {
+      width: $bar-size * 1px;
+      height: $bar-size * 1px;
+      padding: ($bar-thickness / 2) * 1px;
+    }
+    &__circle {
+      &_fill {
+        stroke-dasharray: $circumference * 1px;
+      }
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------------
+    /circle-progress
+-----------------------------------------------------------------------------*/

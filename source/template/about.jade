@@ -26,7 +26,7 @@ html
 
                     h3.about__subtitle кто я
                     p.about__text
-                        | Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов
+                        | Я веб разработчик из Донецка. Мне 27 лет. Я занимаюсь разработкой современных сайтов
                         | и приложений. Мне нравится делать интересные и современные проекты.
                     p.about__text
                         | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
@@ -40,72 +40,13 @@ html
                     p.skills__text
                         | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать
                         | не сложные задачи на Backend. Но давайте по порядку.
-                h5.skills__subtitle Frontend
-                ul.progress
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text html 5
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text css3
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text javaskript & jQuery
-                h5.skills__subtitle Backend
-                ul.progress
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text PHP
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text mySQL
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text Node.js & npm
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text Monho.db
-                h5.skills__subtitle WorkFlow
-                ul.progress
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text Git
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text Gulp
-                    li.progress__item
-                        .circle__wrap
-                            svg(width="100%" height="100%").circle
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#ccc" fill="none")
-                                circle(transform="rotate(-90deg)" r="45" cx="60" cy="60" stroke="#10c1a8").circle__sector
-                            span.circle__text Bover
+                each skillsCat, sectionName in skills
+                    .about-skills__category
+                        h5.title_3= sectionName
+                        ul.about-skills__list
+                            each value, skill in skillsCat
+                                li.about-skills__item
+                                    +circle-progress(value).js-skill= skill
 
     .map__wrap
 

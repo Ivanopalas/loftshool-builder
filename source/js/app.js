@@ -21,7 +21,7 @@ function preloader() {
 
         // Draw offsets
         // Start 1st line
-        circle_o.css({strokeDashoffset: ((100-percentage)/100)*length_o });
+        circle_o.css({strokeDashoffset: ((100-percentage)/100)*length_o});
 
         // When to start 2nd line
         if(percentage > 50) {
@@ -38,12 +38,12 @@ function preloader() {
 		if(count === total) return done_loading();
     }
 
-	function done_loading(){
+    function done_loading(){
         $("#preloader").delay(700).fadeOut(700, function(){
             $("#preloader__progress").remove();
 
-			if($(".flip-card").length){
-                $(".flip-card").addClass("loaded");
+			if($(".flip-container").length){
+                $(".flip-container").addClass("loaded");
             }
         });
     }
@@ -146,6 +146,14 @@ $('.js-flip').on('click', function(e) {
 
 $(document).ready(function() {
 
+    if ($('#scene').length) {
+
+        setInterval(function () {
+            articleTada();
+        }, 1000);
+
+    }
+
     if ($('.js-tabs').length) {
 
         $('ul.js-tabs').each(function () {
@@ -217,19 +225,19 @@ $(document).ready(function() {
 
     }
 
+    //================== parallax =============================
 
-    if($('.parallax').length  && $(window).width() > 1024) {
 
-        var layer = $('.parallax').find('.parallax__layer');
-        var width = window.innerWidth + 100;
 
-        layer.map(function (key, value) {
-            $(value).css({
-                'width' : width + 'px',
-                'margin-left': -(width / 2) + 'px'
-            })
+    if ($('#scene').length) {
+
+        var scene = document.getElementById('scene');
+        var parallax = new Parallax(scene, {
+            invertX: true,
+            invertY: true,
+            frictionX: 1
         });
-        parallax();
+
     }
 
     if($('.blur-bg').length) {
@@ -380,31 +388,6 @@ function setBlur() {
         'background-size' : imgWidth + 'px' + ' ' + 'auto',
         'background-position' : posLeft + 'px' + ' ' + posTop + 'px'
     })
-}
-
-function parallax() {
-
-    var layer = $('.parallax').find('.parallax__layer');
-
-    $(window).on('mousemove', function (e) {
-        var mouseX = e.pageX;
-        var mouseY = e.pageY;
-        var w = (window.innerWidth / 2) - mouseX;
-        var h = (window.innerHeight / 2) - mouseY;
-
-
-        layer.map(function (key, value) {
-            var bottomPosition = (window.innerHeight / 2) * (key / 100);
-            var widthPosition = w * (key / 100);
-            var heightPosition = h * (key / 100);
-            $(value).css({
-                'bottom' : '-' + bottomPosition + 'px',
-                'transform' : 'translate3d(' + widthPosition + 'px, ' + heightPosition + 'px, 0)'
-            });
-        });
-
-    });
-
 }
 
 
@@ -685,3 +668,49 @@ $(function () {
 
     })
 });
+
+
+/*----------------------------------------------------------------
+
+ skills animation
+
+ ----------------------------------------------------------------*/
+
+if ($('.skills').length) {
+
+    var startAnimationElement = $('.about-skills__category');
+
+    var
+        startAnimationScroll = startAnimationElement.offset().top,
+        items = $('.js-skill');
+
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop() + $(window).height();
+
+        if (scroll >= startAnimationScroll) {
+            items.each(function (i) {
+                var
+                    $this = $(this),
+                    percent = $this.data('percent');
+
+                $this.addClass('visible').css({
+                    'animation-delay': i / 5 + 's'
+                }).find('.circle-progress__circle_fill').css({
+                    'animation-name': 'circle-progress-animation-' + percent,
+                    'animation-duration': '2s',
+                    'animation-fill-mode': 'both',
+                    'animation-delay': i / 5 + 's'
+                });
+            });
+        }
+    });
+}
+
+function articleTada() {
+
+    console.log($('.layer__animation').length);
+
+    var randNum = Math.floor(Math.random() * $('.layer__animation').length) + 1;
+    $('.layer__animation').eq(randNum).addClass('animate')
+        .siblings().removeClass('animate');
+}

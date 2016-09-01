@@ -2,6 +2,7 @@
   perspective: 1000px;
   width: 352px;
   height: 424px;
+  opacity: 0;
 
   &__front,
   &__back {
@@ -28,9 +29,43 @@
     position: relative;
   }
 
+  &.loaded {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: bounceInDown;
+    opacity: 1;
+  }
 
 }
 
 .flip-container.flip .flip-container__flipper {
   transform: rotateY(180deg);
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    transform: none;
+  }
 }

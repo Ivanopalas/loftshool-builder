@@ -3,16 +3,30 @@
   text-align: center;
   padding: 20px 0 14px;
 
+  @include tablet {
+    padding: 20px 36px 20px 30px;
+    @include clearfix
+  }
+
   &__link {
     color: #fff;
     font-family: 'RobotoLight';
     font-size: 1rem;
+    
+    @include tablet {
+      float: right;
+      margin-top: 8px;
+    }
   }
 
   &__title {
     color: #fff;
     font-family: 'RobotoRegular';
     font-size: 1.5rem;
+    
+    @include tablet {
+      float: left;
+    }
   }
 }
 
@@ -24,6 +38,10 @@
     padding: 0;
     margin: 0;
     background: #fff;
+
+    @include tablet {
+      display: flex;
+    }
     
     li {
       font-family: 'RobotoMedium';
@@ -34,6 +52,15 @@
       margin-bottom: 2px;
       text-transform: uppercase;
       cursor: pointer;
+
+      &.active {
+        color: $circle-color;
+        background: #fff;
+      }
+
+      @include tablet {
+        flex: 1;
+      }
     }
   }
 
@@ -50,6 +77,11 @@
     padding: 30px 10px;
     background: url('/assets/img/admin-bg.jpg') no-repeat top center;
     background-size: auto 100%;
+
+    @include tablet {
+      height: 100vh;
+      background-size: cover;
+    }
   }
 
   &__title {
@@ -128,5 +160,17 @@
     border: none;
     border-radius: 8px;
     margin-bottom: 20px;
+  }
+
+  &__input {
+    @include tablet{
+      width: 300px;
+    }
+  }
+
+  &__textarea {
+    @include tablet {
+      width: 500px;
+    }
   }
 }

@@ -8,17 +8,21 @@ html
 
     include common/_preloader
 
-    .parallax
-      .parallax__layer: img(src="/assets/img/layer_1.jpg")
-      .parallax__layer: img(src="/assets/img/layer_2.png")
-      .parallax__layer: img(src="/assets/img/layer_3.png")
-      .parallax__layer: img(src="/assets/img/layer_4.png")
-      .parallax__layer: img(src="/assets/img/layer_5.png")
-      .parallax__layer: img(src="/assets/img/layer_6.png")
-      .parallax__layer: img(src="/assets/img/layer_7.png")
-      .parallax__layer: img(src="/assets/img/layer_8.png")
-      .parallax__layer: img(src="/assets/img/layer_9.png")
-      .parallax__layer: img(src="/assets/img/layer_10.png")
+    ul#scene
+      li(data-depth="0.00").layer: img.layer__full-width(src="/assets/img/layer1.jpg")
+      li(data-depth="0.20").layer: img.layer__animation.layer__animation--animated2(src="/assets/img/layer2.png")
+      li(data-depth="0.40").layer: img.layer__animation.layer__animation--animated3(src="/assets/img/layer3.png")
+      li(data-depth="0.60").layer: img.layer__animation.layer__animation--animated4(src="/assets/img/layer4.png")
+      li(data-depth="0.80").layer: img.layer__animation.layer__animation--animated5(src="/assets/img/layer5.png")
+      li(data-depth="1.00").layer: img.layer__animation.layer__animation--animated6(src="/assets/img/layer6.png")
+      li(data-depth="0.00").layer: img.layer__full-width(src="/assets/img/layer7.png")
+      li(data-depth="0.50").layer: img.layer__animation.layer__animation--animated8(src="/assets/img/layer8.png")
+      li(data-depth="0.50").layer: img.layer__animation.layer__animation--animated9(src="/assets/img/layer9.png")
+      li(data-depth="0.70").layer: img.layer__animation.layer__animation--animated10(src="/assets/img/layer10.png")
+      li(data-depth="0.90").layer: img.layer__animation.layer__animation--animated11(src="/assets/img/layer11.png")
+      li(data-depth="1.10").layer: img.layer__animation.layer__animation--animated12(src="/assets/img/layer12.png")
+      li(data-depth="0.25").layer: img.layer__animation.layer__animation--animated13(src="/assets/img/layer13.png")
+      li(data-depth="0.15").layer: img.layer__animation.layer__animation--animated14(src="/assets/img/layer14.png")
 
     section.wellcome
       .wellcome-box__hidden
@@ -30,7 +34,7 @@ html
               p.center.center--wellcome
                 img(src="/assets/img/myPhoto.jpg").wellcome-box__photo
               h2.title.title--wellcome Аксютин Иван
-              p.wellcome-box__subtitle личный сайт веб разработчика
+              p.wellcome-box__subtitle форнтенд разработчик
               ul.wellcome-social
                 li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--vk
                 li.wellcome-social__list: a(href='#').wellcome-social__item.wellcome-social__item--github

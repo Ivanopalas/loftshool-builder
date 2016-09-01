@@ -1,4 +1,22 @@
 {
+  "skills": {
+    "Frontend": {
+      "HTML5": "90",
+      "CSS3": "90",
+      "JavaScript & jQuery": "75"
+    },
+    "Backend": {
+      "PHP": "65",
+      "mySQL": "60",
+      "Node.js & npm": "50",
+      "Mongo.db": "50"
+    },
+    "WorkFlow": {
+      "Git": "95",
+      "Gulp": "85",
+      "Bower": "75"
+    }
+  },
   "works": {
     "work1": {
       "name": "Сайт школы онлайн образования",
